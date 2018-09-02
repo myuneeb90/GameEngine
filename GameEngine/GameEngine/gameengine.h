@@ -1,6 +1,7 @@
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 
+#include "CoreEngine/D3DWidget.h"
 #include <QtWidgets/QMainWindow>
 #include "ui_gameengine.h"
 

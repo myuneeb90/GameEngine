@@ -33,6 +33,18 @@
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
+    <Filter Include="Header Files\CoreEngine">
+      <UniqueIdentifier>{1e103253-8259-468a-afb6-0ea91a358297}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CoreEngine">
+      <UniqueIdentifier>{de9371d3-d211-4591-bdc1-adefdfcb1361}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MathEngine">
+      <UniqueIdentifier>{3df7a8e9-bbf7-40a5-a3a1-5220430667bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MathEngine">
+      <UniqueIdentifier>{f05a69b5-18f2-4fdb-85c1-e27357b3735e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -41,30 +53,126 @@
     <ClCompile Include="gameengine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_gameengine.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreEngine\AppMain.cpp">
+      <Filter>Source Files\CoreEngine</Filter>
+    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_gameengine.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_gameengine.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\qrc_gameengine.cpp">
-      <Filter>Generated Files</Filter>
+    <ClCompile Include="CoreEngine\GraphicsEngine.cpp">
+      <Filter>Source Files\CoreEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_D3DWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_D3DWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreEngine\D3DWidget.cpp">
+      <Filter>Source Files\CoreEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Mathd.cpp">
+      <Filter>Source Files\MathEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Mathf.cpp">
+      <Filter>Source Files\MathEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Matrix4x4d.cpp">
+      <Filter>Source Files\MathEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Matrix4x4f.cpp">
+      <Filter>Source Files\MathEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Plane.cpp">
+      <Filter>Source Files\MathEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Quaternion.cpp">
+      <Filter>Source Files\MathEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Vector2d.cpp">
+      <Filter>Source Files\MathEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Vector2f.cpp">
+      <Filter>Source Files\MathEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Vector3d.cpp">
+      <Filter>Source Files\MathEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Vector3f.cpp">
+      <Filter>Source Files\MathEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Vector4d.cpp">
+      <Filter>Source Files\MathEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Vector4f.cpp">
+      <Filter>Source Files\MathEngine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="gameengine.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="gameengine.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="gameengine.qrc">
       <Filter>Resource Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="gameengine.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CoreEngine\D3DWidget.h">
+      <Filter>Header Files\CoreEngine</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_gameengine.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEngine\AppMain.h">
+      <Filter>Header Files\CoreEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEngine\GraphicsEngine.h">
+      <Filter>Header Files\CoreEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Mathd.h">
+      <Filter>Header Files\MathEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Mathf.h">
+      <Filter>Header Files\MathEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Matrix4x4d.h">
+      <Filter>Header Files\MathEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Matrix4x4f.h">
+      <Filter>Header Files\MathEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Plane.h">
+      <Filter>Header Files\MathEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Quaternion.h">
+      <Filter>Header Files\MathEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Vector2d.h">
+      <Filter>Header Files\MathEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Vector2f.h">
+      <Filter>Header Files\MathEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Vector3d.h">
+      <Filter>Header Files\MathEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Vector3f.h">
+      <Filter>Header Files\MathEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Vector4d.h">
+      <Filter>Header Files\MathEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Vector4f.h">
+      <Filter>Header Files\MathEngine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
