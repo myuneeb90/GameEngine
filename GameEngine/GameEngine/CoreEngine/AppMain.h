@@ -34,6 +34,9 @@
 #include <cstdio>
 #include <io.h>
 #include <fcntl.h>
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
 using namespace std;
 
 // Engine Defines
@@ -70,6 +73,9 @@ enum CullModeType
 	CMT_BACK = 2
 };
 
+// Common
+#include "Common/EList.h"
+
 // Math Engine
 #include "MathEngine/Mathf.h"
 #include "MathEngine/Mathd.h"
@@ -90,5 +96,24 @@ enum CullModeType
 
 // Graphics Engine
 #include "CoreEngine/GraphicsEngine.h"
+#include "CoreEngine/DebugEngine.h"
+#include "CoreEngine/WindowEngine.h"
+#include "CoreEngine/GlobalRefs.h"
+
+// Render Engine
+#include "RenderEngine/Color.h"
+#include "RenderEngine/Material.h"
+#include "RenderEngine/Mesh.h"
+#include "RenderEngine/Shader.h"
+
+// ECS
+#include "ECS/BaseComponent.h"
+#include "ECS/Entity.h" 
+#include "ECS/EntityPool.h"
+#include "ECS/EntityGroup.h"
+#include "ECS/BaseSystem.h"
+#include "ECS/RenderSystem.h"
+
+
 
 #endif

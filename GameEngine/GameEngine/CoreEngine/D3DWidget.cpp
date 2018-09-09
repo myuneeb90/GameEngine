@@ -2,20 +2,25 @@
 
 D3DWidget::D3DWidget(QWidget *parent) : QWidget(parent)
 {
+	Debug = new DebugEngine();
+	GlobalRefs::Debug = Debug;
+
 	Graphics = new GraphicsEngine();
 	Graphics->GetDeviceInfo(width(), height());
 	Graphics->CreateDevice(width(), height(), VSS_ENABLED, (HWND)winId(), WMT_WINDOWED);
 	Graphics->CreateBuffers(width(), height());
+	GlobalRefs::Graphics = Graphics;
 
 	setAttribute(Qt::WA_PaintOnScreen, true);
 	setAttribute(Qt::WA_NativeWindow, true);
-
-
 }
 
 D3DWidget::~D3DWidget()
 {
 	SAFE_DELETE(Graphics);
+	SAFE_DELETE(Debug);
+	GlobalRefs::Graphics = NULL;
+	GlobalRefs::Debug = NULL;
 }
 
 void D3DWidget::resizeEvent(QResizeEvent *evt)

@@ -26,6 +26,8 @@ class GraphicsEngine
 	public:
 			ID3D11Device *Device;
 			ID3D11DeviceContext *DeviceContext;
+
+			aiScene *scene;
 	public:
 			GraphicsEngine();
 			~GraphicsEngine();

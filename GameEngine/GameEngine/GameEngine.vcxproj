@@ -35,8 +35,8 @@
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\SoftwaresLibrary\Assimp\assimp-3.1.1-win-binaries\include;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\SoftwaresLibrary\Assimp\assimp-3.1.1-win-binaries\lib32;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -73,9 +73,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Common\EList.cpp" />
     <ClCompile Include="CoreEngine\AppMain.cpp" />
     <ClCompile Include="CoreEngine\D3DWidget.cpp" />
+    <ClCompile Include="CoreEngine\DebugEngine.cpp" />
+    <ClCompile Include="CoreEngine\GlobalRefs.cpp" />
     <ClCompile Include="CoreEngine\GraphicsEngine.cpp" />
+    <ClCompile Include="CoreEngine\WindowEngine.cpp" />
+    <ClCompile Include="ECS\BaseComponent.cpp" />
+    <ClCompile Include="ECS\BaseSystem.cpp" />
+    <ClCompile Include="ECS\Entity.cpp" />
+    <ClCompile Include="ECS\EntityGroup.cpp" />
+    <ClCompile Include="ECS\EntityPool.cpp" />
+    <ClCompile Include="ECS\RenderSystem.cpp" />
     <ClCompile Include="gameengine.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_D3DWidget.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -108,6 +118,10 @@
     <ClCompile Include="MathEngine\Vector3f.cpp" />
     <ClCompile Include="MathEngine\Vector4d.cpp" />
     <ClCompile Include="MathEngine\Vector4f.cpp" />
+    <ClCompile Include="RenderEngine\Color.cpp" />
+    <ClCompile Include="RenderEngine\Material.cpp" />
+    <ClCompile Include="RenderEngine\Mesh.cpp" />
+    <ClCompile Include="RenderEngine\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="gameengine.h">
@@ -135,7 +149,17 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Common\EList.h" />
     <ClInclude Include="CoreEngine\AppMain.h" />
+    <ClInclude Include="CoreEngine\DebugEngine.h" />
+    <ClInclude Include="CoreEngine\GlobalRefs.h" />
+    <ClInclude Include="CoreEngine\WindowEngine.h" />
+    <ClInclude Include="ECS\BaseComponent.h" />
+    <ClInclude Include="ECS\BaseSystem.h" />
+    <ClInclude Include="ECS\Entity.h" />
+    <ClInclude Include="ECS\EntityGroup.h" />
+    <ClInclude Include="ECS\EntityPool.h" />
+    <ClInclude Include="ECS\RenderSystem.h" />
     <ClInclude Include="MathEngine\Mathd.h" />
     <ClInclude Include="MathEngine\Mathf.h" />
     <ClInclude Include="MathEngine\Matrix4x4d.h" />
@@ -148,6 +172,10 @@
     <ClInclude Include="MathEngine\Vector3f.h" />
     <ClInclude Include="MathEngine\Vector4d.h" />
     <ClInclude Include="MathEngine\Vector4f.h" />
+    <ClInclude Include="RenderEngine\Color.h" />
+    <ClInclude Include="RenderEngine\Material.h" />
+    <ClInclude Include="RenderEngine\Mesh.h" />
+    <ClInclude Include="RenderEngine\Shader.h" />
     <CustomBuild Include="CoreEngine\D3DWidget.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing D3DWidget.h...</Message>

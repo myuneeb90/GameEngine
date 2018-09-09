@@ -45,6 +45,24 @@
     <Filter Include="Source Files\MathEngine">
       <UniqueIdentifier>{f05a69b5-18f2-4fdb-85c1-e27357b3735e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ECS">
+      <UniqueIdentifier>{248ee6d0-e08f-4417-982a-f6607fbde4a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ECS">
+      <UniqueIdentifier>{1c05a1fe-74b6-4c03-9e76-fbfb46a6df2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common">
+      <UniqueIdentifier>{587a7ae7-e1ff-47f6-9118-4876cd62f733}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common">
+      <UniqueIdentifier>{a6070b0b-18fc-4aca-bd98-6499e15a227d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\RenderEngine">
+      <UniqueIdentifier>{9a83a20d-57c9-42fa-8754-07045423ffb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RenderEngine">
+      <UniqueIdentifier>{191cf2b1-998a-4279-9186-3f799b45305c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -113,6 +131,48 @@
     <ClCompile Include="MathEngine\Vector4f.cpp">
       <Filter>Source Files\MathEngine</Filter>
     </ClCompile>
+    <ClCompile Include="ECS\BaseComponent.cpp">
+      <Filter>Source Files\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="ECS\Entity.cpp">
+      <Filter>Source Files\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\EList.cpp">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="ECS\EntityPool.cpp">
+      <Filter>Source Files\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="ECS\EntityGroup.cpp">
+      <Filter>Source Files\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine\Color.cpp">
+      <Filter>Source Files\RenderEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine\Mesh.cpp">
+      <Filter>Source Files\RenderEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine\Material.cpp">
+      <Filter>Source Files\RenderEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="ECS\BaseSystem.cpp">
+      <Filter>Source Files\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="ECS\RenderSystem.cpp">
+      <Filter>Source Files\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine\Shader.cpp">
+      <Filter>Source Files\RenderEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreEngine\GlobalRefs.cpp">
+      <Filter>Source Files\CoreEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreEngine\DebugEngine.cpp">
+      <Filter>Source Files\CoreEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreEngine\WindowEngine.cpp">
+      <Filter>Source Files\CoreEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="gameengine.ui">
@@ -173,6 +233,48 @@
     </ClInclude>
     <ClInclude Include="MathEngine\Vector4f.h">
       <Filter>Header Files\MathEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\BaseComponent.h">
+      <Filter>Header Files\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\Entity.h">
+      <Filter>Header Files\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\EList.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\EntityPool.h">
+      <Filter>Header Files\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\EntityGroup.h">
+      <Filter>Header Files\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\Color.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\Mesh.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\Material.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\BaseSystem.h">
+      <Filter>Header Files\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\RenderSystem.h">
+      <Filter>Header Files\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\Shader.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEngine\GlobalRefs.h">
+      <Filter>Header Files\CoreEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEngine\DebugEngine.h">
+      <Filter>Header Files\CoreEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEngine\WindowEngine.h">
+      <Filter>Header Files\CoreEngine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
