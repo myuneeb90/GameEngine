@@ -7,6 +7,7 @@ class GlobalRefs
 			static GraphicsEngine *Graphics;
 			static DebugEngine *Debug;
 			static WindowEngine *Window;
+			static BaseScene *Scene;
 };
 
 #endif

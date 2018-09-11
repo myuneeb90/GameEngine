@@ -13,6 +13,8 @@ class D3DWidget : public QWidget
 	private:
 			GraphicsEngine *Graphics;
 			DebugEngine *Debug;
+			BaseScene *Scene;
+			int FirstFrame;
 	protected:
 			  virtual void resizeEvent(QResizeEvent *evt);
 			  virtual void paintEvent(QPaintEvent *evt);

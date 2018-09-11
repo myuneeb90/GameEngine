@@ -22,6 +22,8 @@ class ENode
 
 			~ENode()
 			{
+				cout<<"Destroying Node : "<<this->Id<<endl;	
+
 				Id = 0;
 				
 				if(Data != NULL)
@@ -30,7 +32,7 @@ class ENode
 				}
 
 				NextPtr = NULL;
-				PrevPtr = NULL;
+				PrevPtr = NULL;				
 			}			
 };
 

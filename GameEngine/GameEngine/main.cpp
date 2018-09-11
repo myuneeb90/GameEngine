@@ -24,11 +24,16 @@ int main(int argc, char *argv[])
 
 	cout<<"Successfully Loaded Console Window"<<endl;
 
-	QApplication a(argc, argv);
-	GameEngine w;
-	w.show();
+	QApplication *a;
+	a = new QApplication(argc, argv);
+	GameEngine *w;
+	w = new GameEngine();
+	w->show();
+	a->exec();
 
-	a.exec();
+	SAFE_DELETE(a);
+	SAFE_DELETE(w);
+
 	system("pause");
 	return 0;
 }

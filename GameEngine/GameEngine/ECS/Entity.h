@@ -8,6 +8,9 @@ class Entity
 	public:
 			Entity();
 			virtual ~Entity();
+
+			void AddComponent(BaseComponent *component);
+			void RemoveComponent(BaseComponent *component);
 };
 
 #endif 

@@ -3,3 +3,4 @@
 GraphicsEngine* GlobalRefs::Graphics = NULL;
 DebugEngine* GlobalRefs::Debug = NULL;
 WindowEngine* GlobalRefs::Window = NULL;
+BaseScene* GlobalRefs::Scene = NULL;

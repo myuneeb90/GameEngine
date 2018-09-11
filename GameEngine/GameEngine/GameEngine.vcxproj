@@ -120,8 +120,13 @@
     <ClCompile Include="MathEngine\Vector4f.cpp" />
     <ClCompile Include="RenderEngine\Color.cpp" />
     <ClCompile Include="RenderEngine\Material.cpp" />
+    <ClCompile Include="RenderEngine\MaterialFilter.cpp" />
     <ClCompile Include="RenderEngine\Mesh.cpp" />
+    <ClCompile Include="RenderEngine\MeshFilter.cpp" />
+    <ClCompile Include="RenderEngine\MeshShapes.cpp" />
     <ClCompile Include="RenderEngine\Shader.cpp" />
+    <ClCompile Include="SceneEngine\BaseScene.cpp" />
+    <ClCompile Include="SceneEngine\GameScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="gameengine.h">
@@ -174,8 +179,13 @@
     <ClInclude Include="MathEngine\Vector4f.h" />
     <ClInclude Include="RenderEngine\Color.h" />
     <ClInclude Include="RenderEngine\Material.h" />
+    <ClInclude Include="RenderEngine\MaterialFilter.h" />
     <ClInclude Include="RenderEngine\Mesh.h" />
+    <ClInclude Include="RenderEngine\MeshFilter.h" />
+    <ClInclude Include="RenderEngine\MeshShapes.h" />
     <ClInclude Include="RenderEngine\Shader.h" />
+    <ClInclude Include="SceneEngine\BaseScene.h" />
+    <ClInclude Include="SceneEngine\GameScene.h" />
     <CustomBuild Include="CoreEngine\D3DWidget.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing D3DWidget.h...</Message>

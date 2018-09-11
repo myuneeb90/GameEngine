@@ -34,6 +34,7 @@
 #include <cstdio>
 #include <io.h>
 #include <fcntl.h>
+#include <typeinfo>
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
@@ -98,22 +99,30 @@ enum CullModeType
 #include "CoreEngine/GraphicsEngine.h"
 #include "CoreEngine/DebugEngine.h"
 #include "CoreEngine/WindowEngine.h"
+#include "SceneEngine/BaseScene.h"
 #include "CoreEngine/GlobalRefs.h"
 
 // Render Engine
 #include "RenderEngine/Color.h"
+#include "RenderEngine/Texture2D.h"
 #include "RenderEngine/Material.h"
 #include "RenderEngine/Mesh.h"
 #include "RenderEngine/Shader.h"
+#include "RenderEngine/MeshFilter.h"
+#include "RenderEngine/MaterialFilter.h"
+#include "RenderEngine/MeshShapes.h"
+#include "RenderEngine/LineShapes.h"
 
 // ECS
 #include "ECS/BaseComponent.h"
 #include "ECS/Entity.h" 
-#include "ECS/EntityPool.h"
 #include "ECS/EntityGroup.h"
+#include "ECS/EntityPool.h"
 #include "ECS/BaseSystem.h"
 #include "ECS/RenderSystem.h"
 
+// Scene Engine
+#include "SceneEngine/GameScene.h"
 
 
 #endif

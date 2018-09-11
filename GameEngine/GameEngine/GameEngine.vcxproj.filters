@@ -63,6 +63,12 @@
     <Filter Include="Source Files\RenderEngine">
       <UniqueIdentifier>{191cf2b1-998a-4279-9186-3f799b45305c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\SceneEngine">
+      <UniqueIdentifier>{817547d8-a1ed-4eb1-97fc-936098c3e910}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SceneEngine">
+      <UniqueIdentifier>{16d14c63-8a6e-4f2d-8366-c02be27a4bf6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -173,6 +179,21 @@
     <ClCompile Include="CoreEngine\WindowEngine.cpp">
       <Filter>Source Files\CoreEngine</Filter>
     </ClCompile>
+    <ClCompile Include="RenderEngine\MeshFilter.cpp">
+      <Filter>Source Files\RenderEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine\MaterialFilter.cpp">
+      <Filter>Source Files\RenderEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneEngine\BaseScene.cpp">
+      <Filter>Source Files\SceneEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneEngine\GameScene.cpp">
+      <Filter>Source Files\SceneEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine\MeshShapes.cpp">
+      <Filter>Source Files\RenderEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="gameengine.ui">
@@ -275,6 +296,21 @@
     </ClInclude>
     <ClInclude Include="CoreEngine\WindowEngine.h">
       <Filter>Header Files\CoreEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\MeshFilter.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\MaterialFilter.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneEngine\BaseScene.h">
+      <Filter>Header Files\SceneEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneEngine\GameScene.h">
+      <Filter>Header Files\SceneEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\MeshShapes.h">
+      <Filter>Header Files\RenderEngine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

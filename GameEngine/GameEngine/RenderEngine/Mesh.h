@@ -22,7 +22,7 @@ struct Mesh
 class Mesh
 {
 	public:
-			VertexType *VertexData;
+			VertexFormat *VertexData;
 			unsigned long *IndexData;
 			EList<Material> *MaterialData;
 			int VertexCount;
@@ -32,7 +32,7 @@ class Mesh
 			Mesh();
 			~Mesh();
 
-			void CalculateTangentBinormal(VertexType v1, VertexType v2, VertexType v3, Vector3f &tangent, Vector3f &binormal);
+			void CalculateTangentBinormal(VertexFormat v1, VertexFormat v2, VertexFormat v3, Vector3f &tangent, Vector3f &binormal);
 			void CalculateTangentBinormal(Vector3f v1, Vector3f v2, Vector3f v3, Vector2f t1, Vector2f t2, Vector2f t3, Vector3f &tangent, Vector3f &binormal);			
 			void CalculateNormal(Vector3f &tangent, Vector3f &binormal, Vector3f &normal);
 };
