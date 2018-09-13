@@ -16,6 +16,8 @@ class Matrix4x4f
 						M[row][col] = 0;
 					}
 				}
+
+				void Identity();
 			}
 
 			Matrix4x4f(float m00, float m01, float m02, float m03,

@@ -34,7 +34,7 @@ public:
     {
         if (GameEngineClass->objectName().isEmpty())
             GameEngineClass->setObjectName(QStringLiteral("GameEngineClass"));
-        GameEngineClass->resize(1024, 800);
+        GameEngineClass->resize(1024, 768);
         centralWidget = new QWidget(GameEngineClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         GameEngineClass->setCentralWidget(centralWidget);
@@ -57,6 +57,9 @@ public:
     void retranslateUi(QMainWindow *GameEngineClass)
     {
         GameEngineClass->setWindowTitle(QApplication::translate("GameEngineClass", "GameEngine", 0));
+#ifndef QT_NO_WHATSTHIS
+        statusBar->setWhatsThis(QString());
+#endif // QT_NO_WHATSTHIS
     } // retranslateUi
 
 };

@@ -3,7 +3,7 @@
 
 class MeshFilter
 {
-	private:
+	public:
 			ID3D11Buffer *VertexBuffer;
 			ID3D11Buffer *IndexBuffer;
 			unsigned int Stride;

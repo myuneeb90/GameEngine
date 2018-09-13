@@ -3,6 +3,7 @@
 
 #include "CoreEngine/AppMain.h"
 #include <qwidget.h>
+#include <qtimer.h>
 #include <QtWidgets/QApplication>
 
 class D3DWidget : public QWidget
@@ -14,14 +15,17 @@ class D3DWidget : public QWidget
 			GraphicsEngine *Graphics;
 			DebugEngine *Debug;
 			BaseScene *Scene;
+			TimeEngine *Time;
+			InputEngine *Input;
+			HINSTANCE HInstance;
 			int FirstFrame;
 	protected:
 			  virtual void resizeEvent(QResizeEvent *evt);
 			  virtual void paintEvent(QPaintEvent *evt);
-			  virtual void wheelEvent(QWheelEvent *evt);
-			  virtual void mousePressEvent(QMouseEvent *evt);
-			  virtual void mouseReleaseEvent(QMouseEvent *evt);
-			  virtual void mouseMoveEvent(QMouseEvent *evt);
+			  //virtual void wheelEvent(QWheelEvent *evt);
+			  //virtual void mousePressEvent(QMouseEvent *evt);
+			  //virtual void mouseReleaseEvent(QMouseEvent *evt);
+			  //virtual void mouseMoveEvent(QMouseEvent *evt);
 	public:
 			D3DWidget(QWidget *parent = NULL);
 			virtual ~D3DWidget();

@@ -3,16 +3,14 @@
 
 class MaterialFilter
 {
-	protected:
-			  Shader *ShaderData;
 	public:
+			Shader *ShaderData;
+	
 			int StartIndex;
 			int IndexCount;
 	public:
 			MaterialFilter(Shader *shaderData);
 			virtual ~MaterialFilter();
-
-			Shader* GetShader();
 };
 
 #endif

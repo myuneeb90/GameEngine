@@ -1,13 +1,15 @@
 #ifndef GRAPHICS_ENGINE_H
 #define GRAPHICS_ENGINE_H
 
+#include <qwidget.h>
+
 class GraphicsEngine
 {
 	private:
 			bool VSyncEnabled;
 			int VideoCardMemory;
 			char VideoCardDescription[128];
-			IDXGISwapChain *SwapChain;
+			
 			ID3D11Texture2D *BackBufferPtr;
 			ID3D11RenderTargetView *RenderTargetView;
 			ID3D11Texture2D	*DepthStencilBuffer;
@@ -26,7 +28,8 @@ class GraphicsEngine
 	public:
 			ID3D11Device *Device;
 			ID3D11DeviceContext *DeviceContext;
-
+			IDXGISwapChain *SwapChain;
+			DXGI_SWAP_CHAIN_DESC SwapChainDesc;
 			aiScene *scene;
 	public:
 			GraphicsEngine();
@@ -36,13 +39,10 @@ class GraphicsEngine
 			void EndRender();
 
 			void GetDeviceInfo(int screenWidth, int screenHeight);
-			void CreateDevice(int screenWidth, int screenHeight, bool vsync, HWND hWnd, WindowModeType winMode);
+			void CreateDevice(int screenWidth, int screenHeight, bool vsync, HWND wId, WindowModeType winMode);
 			void CreateBuffers(int screenWidth, int screenHeight);
 			void Release();
-
-
-
-
+			void ReleaseBuffers();
 };
 
 #endif 

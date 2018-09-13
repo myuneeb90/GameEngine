@@ -4,6 +4,7 @@ EntityPool::EntityPool()
 {
 	EntityList = NULL;
 	EntityList = new EList<Entity>();
+	Count = 0;
 }
 
 EntityPool::~EntityPool()
@@ -15,7 +16,9 @@ EntityPool::~EntityPool()
 
 void EntityPool::AddEntity(Entity *entity)
 {
+	entity->ID = Count;
 	EntityList->Add(entity);
+	Count++;
 }
 
 void EntityPool::RemoveEntity(Entity *entity)

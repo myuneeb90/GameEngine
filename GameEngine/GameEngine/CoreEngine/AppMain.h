@@ -34,11 +34,16 @@
 #include <cstdio>
 #include <io.h>
 #include <fcntl.h>
+#include <Pdh.h>
 #include <typeinfo>
+#include <stdint.h>
+#include <utility>
+#include <boost/any.hpp>
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 using namespace std;
+using namespace boost;
 
 // Engine Defines
 #define SAFE_DELETE(X) if(X) { delete (X); (X) = NULL; }
@@ -93,7 +98,11 @@ enum CullModeType
 
 // Audio Engine
 
+// Time Engine
+#include "CoreEngine/TimeEngine.h"
+
 // Input Engine
+#include "CoreEngine/InputEngine.h"
 
 // Graphics Engine
 #include "CoreEngine/GraphicsEngine.h"
@@ -112,6 +121,7 @@ enum CullModeType
 #include "RenderEngine/MaterialFilter.h"
 #include "RenderEngine/MeshShapes.h"
 #include "RenderEngine/LineShapes.h"
+#include "RenderEngine/ShadersLib.h"
 
 // ECS
 #include "ECS/BaseComponent.h"
@@ -119,6 +129,7 @@ enum CullModeType
 #include "ECS/EntityGroup.h"
 #include "ECS/EntityPool.h"
 #include "ECS/BaseSystem.h"
+#include "ECS/TransformSystem.h"
 #include "ECS/RenderSystem.h"
 
 // Scene Engine

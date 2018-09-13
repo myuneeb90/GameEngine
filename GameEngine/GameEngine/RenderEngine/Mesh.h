@@ -6,14 +6,14 @@ struct VertexFormat
 	Vector3f Vertex;
 	Vector2f Texcoord;
 	Vector3f Normal;
-	Vector3f Tangent;
-	Vector3f Binormal;
+//	Vector3f Tangent;
+//	Vector3f Binormal;
 };
 
 struct Mesh
 {
-	VertexFormat *VertexBuffer;
-	unsigned long *IndexBuffer;
+	VertexFormat *VertexData;
+	unsigned long *IndexData;
 	int VertexCount;
 	int IndexCount;
 };

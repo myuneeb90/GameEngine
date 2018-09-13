@@ -4,6 +4,8 @@
 class Entity
 {
 	public:
+			int ID;
+			int ComponentID;
 			EList<BaseComponent> *ComponentList;
 	public:
 			Entity();

@@ -9,46 +9,46 @@ Mesh* MeshShapes::CreateQuad(float size)
 	newMesh->VertexCount = 4;
 	newMesh->IndexCount = 6;
 
-	newMesh->VertexBuffer = new VertexFormat[newMesh->VertexCount];
-	newMesh->IndexBuffer = new unsigned long[newMesh->IndexCount];
+	newMesh->VertexData = new VertexFormat[newMesh->VertexCount];
+	newMesh->IndexData = new unsigned long[newMesh->IndexCount];
 
-	newMesh->VertexBuffer[0].Vertex = Vector3f(-halfSize,  halfSize, 0.0f); // Top Left
-	newMesh->VertexBuffer[1].Vertex = Vector3f( halfSize,  halfSize, 0.0f); // Top Right
-	newMesh->VertexBuffer[2].Vertex = Vector3f( halfSize, -halfSize, 0.0f); // Bottom Right
-	newMesh->VertexBuffer[3].Vertex = Vector3f(-halfSize, -halfSize, 0.0f); // Bottom Left
+	newMesh->VertexData[0].Vertex = Vector3f(-halfSize,  halfSize, 0.0f); // Top Left
+	newMesh->VertexData[1].Vertex = Vector3f( halfSize,  halfSize, 0.0f); // Top Right
+	newMesh->VertexData[2].Vertex = Vector3f( halfSize, -halfSize, 0.0f); // Bottom Right
+	newMesh->VertexData[3].Vertex = Vector3f(-halfSize, -halfSize, 0.0f); // Bottom Left
 		
-	newMesh->VertexBuffer[0].Texcoord = Vector2f(0.0f, 0.0f);
-	newMesh->VertexBuffer[1].Texcoord = Vector2f(1.0f, 0.0f);
-	newMesh->VertexBuffer[2].Texcoord = Vector2f(1.0f, 1.0f);
-	newMesh->VertexBuffer[3].Texcoord = Vector2f(0.0f, 1.0f);
+	newMesh->VertexData[0].Texcoord = Vector2f(0.0f, 0.0f);
+	newMesh->VertexData[1].Texcoord = Vector2f(1.0f, 0.0f);
+	newMesh->VertexData[2].Texcoord = Vector2f(1.0f, 1.0f);
+	newMesh->VertexData[3].Texcoord = Vector2f(0.0f, 1.0f);
 
-	newMesh->VertexBuffer[0].Normal = Vector3f(0.0f, 0.0f, -1.0f);
-	newMesh->VertexBuffer[1].Normal = Vector3f(0.0f, 0.0f, -1.0f);
-	newMesh->VertexBuffer[2].Normal = Vector3f(0.0f, 0.0f, -1.0f);
-	newMesh->VertexBuffer[3].Normal = Vector3f(0.0f, 0.0f, -1.0f);
+	newMesh->VertexData[0].Normal = Vector3f(0.0f, 0.0f, -1.0f);
+	newMesh->VertexData[1].Normal = Vector3f(0.0f, 0.0f, -1.0f);
+	newMesh->VertexData[2].Normal = Vector3f(0.0f, 0.0f, -1.0f);
+	newMesh->VertexData[3].Normal = Vector3f(0.0f, 0.0f, -1.0f);
 									  
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[0], newMesh->VertexBuffer[1], newMesh->VertexBuffer[3], 
-									  newMesh->VertexBuffer[0].Tangent, newMesh->VertexBuffer[0].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[1], newMesh->VertexBuffer[0], newMesh->VertexBuffer[2], 
-									  newMesh->VertexBuffer[1].Tangent, newMesh->VertexBuffer[1].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[2], newMesh->VertexBuffer[1], newMesh->VertexBuffer[3], 
-									  newMesh->VertexBuffer[2].Tangent, newMesh->VertexBuffer[2].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[3], newMesh->VertexBuffer[2], newMesh->VertexBuffer[0], 
-									  newMesh->VertexBuffer[3].Tangent, newMesh->VertexBuffer[3].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[0], newMesh->VertexData[1], newMesh->VertexData[3], 
+	//								  newMesh->VertexData[0].Tangent, newMesh->VertexData[0].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[1], newMesh->VertexData[0], newMesh->VertexData[2], 
+	//								  newMesh->VertexData[1].Tangent, newMesh->VertexData[1].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[2], newMesh->VertexData[1], newMesh->VertexData[3], 
+	//								  newMesh->VertexData[2].Tangent, newMesh->VertexData[2].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[3], newMesh->VertexData[2], newMesh->VertexData[0], 
+	//								  newMesh->VertexData[3].Tangent, newMesh->VertexData[3].Binormal);
 
-	for(int i = 0; i < newMesh->VertexCount; i++)
-	{
-		MeshShapes::CalculateNormal(newMesh->VertexBuffer[i].Tangent, newMesh->VertexBuffer[i].Binormal, newMesh->VertexBuffer[i].Normal);
-	}
+	//for(int i = 0; i < newMesh->VertexCount; i++)
+	//{
+	//	MeshShapes::CalculateNormal(newMesh->VertexData[i].Tangent, newMesh->VertexData[i].Binormal, newMesh->VertexData[i].Normal);
+	//}
 
 	// clock wise vertex winding order
-	newMesh->IndexBuffer[0] = 0; // Top Left
-	newMesh->IndexBuffer[1] = 1; // Top Right
-	newMesh->IndexBuffer[2] = 2; // Bottom Right
+	newMesh->IndexData[0] = 0; // Top Left
+	newMesh->IndexData[1] = 1; // Top Right
+	newMesh->IndexData[2] = 2; // Bottom Right
 
-	newMesh->IndexBuffer[3] = 0; // Top Left
-	newMesh->IndexBuffer[4] = 2; // Bottom Right
-	newMesh->IndexBuffer[5] = 3; // Bottom Left
+	newMesh->IndexData[3] = 0; // Top Left
+	newMesh->IndexData[4] = 2; // Bottom Right
+	newMesh->IndexData[5] = 3; // Bottom Left
 
 	return newMesh;
 }
@@ -61,8 +61,8 @@ Mesh* MeshShapes::CreateCircle(float radius, int sides)
 	newMesh->VertexCount = sides * 3;
 	newMesh->IndexCount = sides * 3;
 
-	newMesh->VertexBuffer = new VertexFormat[newMesh->VertexCount];
-	newMesh->IndexBuffer = new unsigned long[newMesh->IndexCount];
+	newMesh->VertexData = new VertexFormat[newMesh->VertexCount];
+	newMesh->IndexData = new unsigned long[newMesh->IndexCount];
 
 	float angle = 360 / (float)sides;
 	
@@ -73,10 +73,10 @@ Mesh* MeshShapes::CreateCircle(float radius, int sides)
 		float cosAngle = 0, sinAngle = 0, vX = 0, vY = 0;
 
 		// Vertex v0
-		newMesh->VertexBuffer[j].Vertex = centerVertex;
-		newMesh->VertexBuffer[j].Normal = Vector3f(0, 0, -1);
-		newMesh->VertexBuffer[j].Texcoord = Vector2f(cosAngle, sinAngle);
-		newMesh->IndexBuffer[j] = j;
+		newMesh->VertexData[j].Vertex = centerVertex;
+		newMesh->VertexData[j].Normal = Vector3f(0, 0, -1);
+		newMesh->VertexData[j].Texcoord = Vector2f(cosAngle, sinAngle);
+		newMesh->IndexData[j] = j;
 		j++;
 
 		// Vertex v2
@@ -86,10 +86,10 @@ Mesh* MeshShapes::CreateCircle(float radius, int sides)
 		vX = radius * cosAngle;
 		vY = radius * sinAngle;
 
-		newMesh->VertexBuffer[j].Vertex = Vector3f(vX, vY, 0);
-		newMesh->VertexBuffer[j].Normal = Vector3f(0, 0, -1);
-		newMesh->VertexBuffer[j].Texcoord = Vector2f(cosAngle, sinAngle);
-		newMesh->IndexBuffer[j] = j;
+		newMesh->VertexData[j].Vertex = Vector3f(vX, vY, 0);
+		newMesh->VertexData[j].Normal = Vector3f(0, 0, -1);
+		newMesh->VertexData[j].Texcoord = Vector2f(cosAngle, sinAngle);
+		newMesh->IndexData[j] = j;
 		j++;
 
 		// Vertex v1
@@ -99,19 +99,19 @@ Mesh* MeshShapes::CreateCircle(float radius, int sides)
 		vX = radius * cosAngle;
 		vY = radius * sinAngle;
 
-		newMesh->VertexBuffer[j].Vertex = Vector3f(vX, vY, 0);
-		newMesh->VertexBuffer[j].Normal = Vector3f(0, 0, -1);
-		newMesh->VertexBuffer[j].Texcoord = Vector2f(cosAngle, sinAngle);
-		newMesh->IndexBuffer[j] = j;
+		newMesh->VertexData[j].Vertex = Vector3f(vX, vY, 0);
+		newMesh->VertexData[j].Normal = Vector3f(0, 0, -1);
+		newMesh->VertexData[j].Texcoord = Vector2f(cosAngle, sinAngle);
+		newMesh->IndexData[j] = j;
 		j++;		
 
 		// Not tested, placeholder calculations...
-		MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[k], newMesh->VertexBuffer[k + 1], newMesh->VertexBuffer[k + 2], 
-										  newMesh->VertexBuffer[k].Tangent, newMesh->VertexBuffer[k].Binormal);
-		MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[k + 1], newMesh->VertexBuffer[k], newMesh->VertexBuffer[k + 2], 
-										  newMesh->VertexBuffer[k + 1].Tangent, newMesh->VertexBuffer[k + 1].Binormal);
-		MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[k + 2], newMesh->VertexBuffer[k + 1], newMesh->VertexBuffer[k], 
-										  newMesh->VertexBuffer[k + 2].Tangent, newMesh->VertexBuffer[k + 2].Binormal);
+		//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[k], newMesh->VertexData[k + 1], newMesh->VertexData[k + 2], 
+		//								  newMesh->VertexData[k].Tangent, newMesh->VertexData[k].Binormal);
+		//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[k + 1], newMesh->VertexData[k], newMesh->VertexData[k + 2], 
+		//								  newMesh->VertexData[k + 1].Tangent, newMesh->VertexData[k + 1].Binormal);
+		//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[k + 2], newMesh->VertexData[k + 1], newMesh->VertexData[k], 
+		//								  newMesh->VertexData[k + 2].Tangent, newMesh->VertexData[k + 2].Binormal);
 		k += 3;
 	}
 
@@ -126,8 +126,8 @@ Mesh* MeshShapes::CreateRing(float outerRadius, float innerRadius, int sides)
 	newMesh->VertexCount = sides * 4;
 	newMesh->IndexCount = sides * 6;
 
-	newMesh->VertexBuffer = new VertexFormat[newMesh->VertexCount];
-	newMesh->IndexBuffer = new unsigned long[newMesh->IndexCount];
+	newMesh->VertexData = new VertexFormat[newMesh->VertexCount];
+	newMesh->IndexData = new unsigned long[newMesh->IndexCount];
 
 	float angle = 360 / (float)sides;
 	
@@ -144,9 +144,9 @@ Mesh* MeshShapes::CreateRing(float outerRadius, float innerRadius, int sides)
 		vX = outerRadius * cosAngle;
 		vY = outerRadius * sinAngle;
 
-		newMesh->VertexBuffer[j].Vertex = Vector3f(vX, vY, 0);
-		newMesh->VertexBuffer[j].Normal = Vector3f(0, 0, -1);
-		newMesh->VertexBuffer[j].Texcoord = Vector2f(1, 0);
+		newMesh->VertexData[j].Vertex = Vector3f(vX, vY, 0);
+		newMesh->VertexData[j].Normal = Vector3f(0, 0, -1);
+		newMesh->VertexData[j].Texcoord = Vector2f(1, 0);
 		j++;
 
 		// Vertex v1
@@ -156,9 +156,9 @@ Mesh* MeshShapes::CreateRing(float outerRadius, float innerRadius, int sides)
 		vX = outerRadius * cosAngle;
 		vY = outerRadius * sinAngle;
 
-		newMesh->VertexBuffer[j].Vertex = Vector3f(vX, vY, 0);
-		newMesh->VertexBuffer[j].Normal = Vector3f(0, 0, -1);
-		newMesh->VertexBuffer[j].Texcoord = Vector2f(0, 0);
+		newMesh->VertexData[j].Vertex = Vector3f(vX, vY, 0);
+		newMesh->VertexData[j].Normal = Vector3f(0, 0, -1);
+		newMesh->VertexData[j].Texcoord = Vector2f(0, 0);
 		j++;
 
 		// Vertex v2
@@ -168,9 +168,9 @@ Mesh* MeshShapes::CreateRing(float outerRadius, float innerRadius, int sides)
 		vX = innerRadius * cosAngle;
 		vY = innerRadius * sinAngle;
 
-		newMesh->VertexBuffer[j].Vertex = Vector3f(vX, vY, 0);
-		newMesh->VertexBuffer[j].Normal = Vector3f(0, 0, -1);
-		newMesh->VertexBuffer[j].Texcoord = Vector2f(1, 1);
+		newMesh->VertexData[j].Vertex = Vector3f(vX, vY, 0);
+		newMesh->VertexData[j].Normal = Vector3f(0, 0, -1);
+		newMesh->VertexData[j].Texcoord = Vector2f(1, 1);
 		j++;
 
 		// Vertex v3
@@ -180,39 +180,39 @@ Mesh* MeshShapes::CreateRing(float outerRadius, float innerRadius, int sides)
 		vX = innerRadius * cosAngle;
 		vY = innerRadius * sinAngle;
 
-		newMesh->VertexBuffer[j].Vertex = Vector3f(vX, vY, 0);
-		newMesh->VertexBuffer[j].Normal = Vector3f(0, 0, -1);
-		newMesh->VertexBuffer[j].Texcoord = Vector2f(0, 1);
+		newMesh->VertexData[j].Vertex = Vector3f(vX, vY, 0);
+		newMesh->VertexData[j].Normal = Vector3f(0, 0, -1);
+		newMesh->VertexData[j].Texcoord = Vector2f(0, 1);
 		j++;	
 
 		// Not tested, placeholder calculations...
-		MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[k], newMesh->VertexBuffer[k + 1], newMesh->VertexBuffer[k + 2], 
-										  newMesh->VertexBuffer[k].Tangent, newMesh->VertexBuffer[k].Binormal);
-		MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[k + 1], newMesh->VertexBuffer[k], newMesh->VertexBuffer[k + 2], 
-										  newMesh->VertexBuffer[k + 1].Tangent, newMesh->VertexBuffer[k + 1].Binormal);
-		MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[k + 2], newMesh->VertexBuffer[k + 1], newMesh->VertexBuffer[k], 
-										  newMesh->VertexBuffer[k + 2].Tangent, newMesh->VertexBuffer[k + 2].Binormal);
-		MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[k + 3], newMesh->VertexBuffer[k + 1], newMesh->VertexBuffer[k], 
-										  newMesh->VertexBuffer[k + 3].Tangent, newMesh->VertexBuffer[k + 3].Binormal);
+		//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[k], newMesh->VertexData[k + 1], newMesh->VertexData[k + 2], 
+		//								  newMesh->VertexData[k].Tangent, newMesh->VertexData[k].Binormal);
+		//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[k + 1], newMesh->VertexData[k], newMesh->VertexData[k + 2], 
+		//								  newMesh->VertexData[k + 1].Tangent, newMesh->VertexData[k + 1].Binormal);
+		//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[k + 2], newMesh->VertexData[k + 1], newMesh->VertexData[k], 
+		//								  newMesh->VertexData[k + 2].Tangent, newMesh->VertexData[k + 2].Binormal);
+		//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[k + 3], newMesh->VertexData[k + 1], newMesh->VertexData[k], 
+		//								  newMesh->VertexData[k + 3].Tangent, newMesh->VertexData[k + 3].Binormal);
 		k += 4;
 	}
 
 	for(int i = 0, j = 0, k = 0; i < sides; i++)
 	{
 		// Triangle 1
-		newMesh->IndexBuffer[j] = k;
+		newMesh->IndexData[j] = k;
 		j++;
-		newMesh->IndexBuffer[j] = k + 2;
+		newMesh->IndexData[j] = k + 2;
 		j++;
-		newMesh->IndexBuffer[j] = k + 1;
+		newMesh->IndexData[j] = k + 1;
 		j++;
 
 		// Triangle 2
-		newMesh->IndexBuffer[j] = k + 2;
+		newMesh->IndexData[j] = k + 2;
 		j++;
-		newMesh->IndexBuffer[j] = k + 3;
+		newMesh->IndexData[j] = k + 3;
 		j++;
-		newMesh->IndexBuffer[j] = k + 1;
+		newMesh->IndexData[j] = k + 1;
 		j++;
 
 		k += 4;
@@ -233,220 +233,220 @@ Mesh* MeshShapes::CreateCube(float size)
 	newMesh->VertexCount = 24;
 	newMesh->IndexCount = 36;
 
-	newMesh->VertexBuffer = new VertexFormat[newMesh->VertexCount];
-	newMesh->IndexBuffer = new unsigned long[newMesh->IndexCount];
+	newMesh->VertexData = new VertexFormat[newMesh->VertexCount];
+	newMesh->IndexData = new unsigned long[newMesh->IndexCount];
 
 	// Top Face
-	newMesh->VertexBuffer[0].Vertex = Vector3f(-halfSize,  halfSize,  halfSize); 
-	newMesh->VertexBuffer[1].Vertex = Vector3f( halfSize,  halfSize,  halfSize); 
-	newMesh->VertexBuffer[2].Vertex = Vector3f( halfSize,  halfSize, -halfSize); 
-	newMesh->VertexBuffer[3].Vertex = Vector3f(-halfSize,  halfSize, -halfSize); 
+	newMesh->VertexData[0].Vertex = Vector3f(-halfSize,  halfSize,  halfSize); 
+	newMesh->VertexData[1].Vertex = Vector3f( halfSize,  halfSize,  halfSize); 
+	newMesh->VertexData[2].Vertex = Vector3f( halfSize,  halfSize, -halfSize); 
+	newMesh->VertexData[3].Vertex = Vector3f(-halfSize,  halfSize, -halfSize); 
 	
-	newMesh->VertexBuffer[0].Texcoord = Vector2f(0.0f, 0.0f);
-	newMesh->VertexBuffer[1].Texcoord = Vector2f(1.0f, 0.0f);
-	newMesh->VertexBuffer[2].Texcoord = Vector2f(1.0f, 1.0f);
-	newMesh->VertexBuffer[3].Texcoord = Vector2f(0.0f, 1.0f);
+	newMesh->VertexData[0].Texcoord = Vector2f(0.0f, 0.0f);
+	newMesh->VertexData[1].Texcoord = Vector2f(1.0f, 0.0f);
+	newMesh->VertexData[2].Texcoord = Vector2f(1.0f, 1.0f);
+	newMesh->VertexData[3].Texcoord = Vector2f(0.0f, 1.0f);
 
-	newMesh->VertexBuffer[0].Normal = Vector3f(0.0f, 1.0f, 0.0f);
-	newMesh->VertexBuffer[1].Normal = Vector3f(0.0f, 1.0f, 0.0f);
-	newMesh->VertexBuffer[2].Normal = Vector3f(0.0f, 1.0f, 0.0f);
-	newMesh->VertexBuffer[3].Normal = Vector3f(0.0f, 1.0f, 0.0f);
+	newMesh->VertexData[0].Normal = Vector3f(0.0f, 1.0f, 0.0f);
+	newMesh->VertexData[1].Normal = Vector3f(0.0f, 1.0f, 0.0f);
+	newMesh->VertexData[2].Normal = Vector3f(0.0f, 1.0f, 0.0f);
+	newMesh->VertexData[3].Normal = Vector3f(0.0f, 1.0f, 0.0f);
 
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[0], newMesh->VertexBuffer[1], newMesh->VertexBuffer[3], 
-									  newMesh->VertexBuffer[0].Tangent, newMesh->VertexBuffer[0].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[1], newMesh->VertexBuffer[0], newMesh->VertexBuffer[2], 
-									  newMesh->VertexBuffer[1].Tangent, newMesh->VertexBuffer[1].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[2], newMesh->VertexBuffer[1], newMesh->VertexBuffer[3], 
-									  newMesh->VertexBuffer[2].Tangent, newMesh->VertexBuffer[2].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[3], newMesh->VertexBuffer[2], newMesh->VertexBuffer[0], 
-									  newMesh->VertexBuffer[3].Tangent, newMesh->VertexBuffer[3].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[0], newMesh->VertexData[1], newMesh->VertexData[3], 
+	//								  newMesh->VertexData[0].Tangent, newMesh->VertexData[0].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[1], newMesh->VertexData[0], newMesh->VertexData[2], 
+	//								  newMesh->VertexData[1].Tangent, newMesh->VertexData[1].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[2], newMesh->VertexData[1], newMesh->VertexData[3], 
+	//								  newMesh->VertexData[2].Tangent, newMesh->VertexData[2].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[3], newMesh->VertexData[2], newMesh->VertexData[0], 
+	//								  newMesh->VertexData[3].Tangent, newMesh->VertexData[3].Binormal);
 									  
 	// clock wise vertex winding order
-	newMesh->IndexBuffer[0] = 0; 
-	newMesh->IndexBuffer[1] = 1; 
-	newMesh->IndexBuffer[2] = 2; 
+	newMesh->IndexData[0] = 0; 
+	newMesh->IndexData[1] = 1; 
+	newMesh->IndexData[2] = 2; 
 
-	newMesh->IndexBuffer[3] = 0; 
-	newMesh->IndexBuffer[4] = 2; 
-	newMesh->IndexBuffer[5] = 3; 
+	newMesh->IndexData[3] = 0; 
+	newMesh->IndexData[4] = 2; 
+	newMesh->IndexData[5] = 3; 
 
 	// Bottom Face
-	newMesh->VertexBuffer[4].Vertex = Vector3f(-halfSize, -halfSize,  halfSize); 
-	newMesh->VertexBuffer[5].Vertex = Vector3f( halfSize, -halfSize,  halfSize); 
-	newMesh->VertexBuffer[6].Vertex = Vector3f( halfSize, -halfSize, -halfSize); 
-	newMesh->VertexBuffer[7].Vertex = Vector3f(-halfSize, -halfSize, -halfSize);
+	newMesh->VertexData[4].Vertex = Vector3f(-halfSize, -halfSize,  halfSize); 
+	newMesh->VertexData[5].Vertex = Vector3f( halfSize, -halfSize,  halfSize); 
+	newMesh->VertexData[6].Vertex = Vector3f( halfSize, -halfSize, -halfSize); 
+	newMesh->VertexData[7].Vertex = Vector3f(-halfSize, -halfSize, -halfSize);
 
-	newMesh->VertexBuffer[4].Texcoord = Vector2f(0.0f, 0.0f);
-	newMesh->VertexBuffer[5].Texcoord = Vector2f(1.0f, 0.0f);
-	newMesh->VertexBuffer[6].Texcoord = Vector2f(1.0f, 1.0f);
-	newMesh->VertexBuffer[7].Texcoord = Vector2f(0.0f, 1.0f);
+	newMesh->VertexData[4].Texcoord = Vector2f(0.0f, 0.0f);
+	newMesh->VertexData[5].Texcoord = Vector2f(1.0f, 0.0f);
+	newMesh->VertexData[6].Texcoord = Vector2f(1.0f, 1.0f);
+	newMesh->VertexData[7].Texcoord = Vector2f(0.0f, 1.0f);
 
-	newMesh->VertexBuffer[4].Normal = Vector3f(0.0f, -1.0f, 0.0f);
-	newMesh->VertexBuffer[5].Normal = Vector3f(0.0f, -1.0f, 0.0f);
-	newMesh->VertexBuffer[6].Normal = Vector3f(0.0f, -1.0f, 0.0f);
-	newMesh->VertexBuffer[7].Normal = Vector3f(0.0f, -1.0f, 0.0f);
+	newMesh->VertexData[4].Normal = Vector3f(0.0f, -1.0f, 0.0f);
+	newMesh->VertexData[5].Normal = Vector3f(0.0f, -1.0f, 0.0f);
+	newMesh->VertexData[6].Normal = Vector3f(0.0f, -1.0f, 0.0f);
+	newMesh->VertexData[7].Normal = Vector3f(0.0f, -1.0f, 0.0f);
 
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[4], newMesh->VertexBuffer[5], newMesh->VertexBuffer[7], 
-									  newMesh->VertexBuffer[4].Tangent, newMesh->VertexBuffer[4].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[5], newMesh->VertexBuffer[4], newMesh->VertexBuffer[6], 
-									  newMesh->VertexBuffer[5].Tangent, newMesh->VertexBuffer[5].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[6], newMesh->VertexBuffer[5], newMesh->VertexBuffer[7], 
-									  newMesh->VertexBuffer[6].Tangent, newMesh->VertexBuffer[6].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[7], newMesh->VertexBuffer[6], newMesh->VertexBuffer[4], 
-									  newMesh->VertexBuffer[7].Tangent, newMesh->VertexBuffer[7].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[4], newMesh->VertexData[5], newMesh->VertexData[7], 
+	//								  newMesh->VertexData[4].Tangent, newMesh->VertexData[4].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[5], newMesh->VertexData[4], newMesh->VertexData[6], 
+	//								  newMesh->VertexData[5].Tangent, newMesh->VertexData[5].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[6], newMesh->VertexData[5], newMesh->VertexData[7], 
+	//								  newMesh->VertexData[6].Tangent, newMesh->VertexData[6].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[7], newMesh->VertexData[6], newMesh->VertexData[4], 
+	//								  newMesh->VertexData[7].Tangent, newMesh->VertexData[7].Binormal);
 
 	// anti clock wise vertex winding order
-	newMesh->IndexBuffer[6] = 4; 
-	newMesh->IndexBuffer[7] = 7; 
-	newMesh->IndexBuffer[8] = 6; 
+	newMesh->IndexData[6] = 4; 
+	newMesh->IndexData[7] = 7; 
+	newMesh->IndexData[8] = 6; 
 
-	newMesh->IndexBuffer[9] = 4; 
-	newMesh->IndexBuffer[10] = 6; 
-	newMesh->IndexBuffer[11] = 5; 
+	newMesh->IndexData[9] = 4; 
+	newMesh->IndexData[10] = 6; 
+	newMesh->IndexData[11] = 5; 
 
 	// Right Face
-	newMesh->VertexBuffer[8].Vertex = Vector3f( halfSize,  halfSize, -halfSize); 
-	newMesh->VertexBuffer[9].Vertex = Vector3f( halfSize,  halfSize,  halfSize); 
-	newMesh->VertexBuffer[10].Vertex = Vector3f( halfSize, -halfSize,  halfSize); 
-	newMesh->VertexBuffer[11].Vertex = Vector3f( halfSize, -halfSize, -halfSize); 
+	newMesh->VertexData[8].Vertex = Vector3f( halfSize,  halfSize, -halfSize); 
+	newMesh->VertexData[9].Vertex = Vector3f( halfSize,  halfSize,  halfSize); 
+	newMesh->VertexData[10].Vertex = Vector3f( halfSize, -halfSize,  halfSize); 
+	newMesh->VertexData[11].Vertex = Vector3f( halfSize, -halfSize, -halfSize); 
 
-	newMesh->VertexBuffer[8].Texcoord = Vector2f(0.0f, 0.0f);
-	newMesh->VertexBuffer[9].Texcoord = Vector2f(1.0f, 0.0f);
-	newMesh->VertexBuffer[10].Texcoord = Vector2f(1.0f, 1.0f);
-	newMesh->VertexBuffer[11].Texcoord = Vector2f(0.0f, 1.0f);
+	newMesh->VertexData[8].Texcoord = Vector2f(0.0f, 0.0f);
+	newMesh->VertexData[9].Texcoord = Vector2f(1.0f, 0.0f);
+	newMesh->VertexData[10].Texcoord = Vector2f(1.0f, 1.0f);
+	newMesh->VertexData[11].Texcoord = Vector2f(0.0f, 1.0f);
 
-	newMesh->VertexBuffer[8].Normal = Vector3f(1.0f, 0.0f, 0.0f);
-	newMesh->VertexBuffer[9].Normal = Vector3f(1.0f, 0.0f, 0.0f);
-	newMesh->VertexBuffer[10].Normal = Vector3f(1.0f, 0.0f, 0.0f);
-	newMesh->VertexBuffer[11].Normal = Vector3f(1.0f, 0.0f, 0.0f);
+	newMesh->VertexData[8].Normal = Vector3f(1.0f, 0.0f, 0.0f);
+	newMesh->VertexData[9].Normal = Vector3f(1.0f, 0.0f, 0.0f);
+	newMesh->VertexData[10].Normal = Vector3f(1.0f, 0.0f, 0.0f);
+	newMesh->VertexData[11].Normal = Vector3f(1.0f, 0.0f, 0.0f);
 
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[8], newMesh->VertexBuffer[9], newMesh->VertexBuffer[11], 
-									  newMesh->VertexBuffer[8].Tangent, newMesh->VertexBuffer[8].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[9], newMesh->VertexBuffer[8], newMesh->VertexBuffer[10], 
-									  newMesh->VertexBuffer[9].Tangent, newMesh->VertexBuffer[9].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[10], newMesh->VertexBuffer[9], newMesh->VertexBuffer[11], 
-									  newMesh->VertexBuffer[10].Tangent, newMesh->VertexBuffer[10].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[11], newMesh->VertexBuffer[10], newMesh->VertexBuffer[8], 
-									  newMesh->VertexBuffer[11].Tangent, newMesh->VertexBuffer[11].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[8], newMesh->VertexData[9], newMesh->VertexData[11], 
+	//								  newMesh->VertexData[8].Tangent, newMesh->VertexData[8].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[9], newMesh->VertexData[8], newMesh->VertexData[10], 
+	//								  newMesh->VertexData[9].Tangent, newMesh->VertexData[9].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[10], newMesh->VertexData[9], newMesh->VertexData[11], 
+	//								  newMesh->VertexData[10].Tangent, newMesh->VertexData[10].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[11], newMesh->VertexData[10], newMesh->VertexData[8], 
+	//								  newMesh->VertexData[11].Tangent, newMesh->VertexData[11].Binormal);
 
 	// clock wise vertex winding order
-	newMesh->IndexBuffer[12] = 8; 
-	newMesh->IndexBuffer[13] = 9; 
-	newMesh->IndexBuffer[14] = 10; 
+	newMesh->IndexData[12] = 8; 
+	newMesh->IndexData[13] = 9; 
+	newMesh->IndexData[14] = 10; 
 
-	newMesh->IndexBuffer[15] = 8; 
-	newMesh->IndexBuffer[16] = 10; 
-	newMesh->IndexBuffer[17] = 11; 
+	newMesh->IndexData[15] = 8; 
+	newMesh->IndexData[16] = 10; 
+	newMesh->IndexData[17] = 11; 
 
 	// Left Face
-	newMesh->VertexBuffer[12].Vertex = Vector3f(-halfSize,  halfSize, -halfSize); 
-	newMesh->VertexBuffer[13].Vertex = Vector3f(-halfSize,  halfSize,  halfSize); 
-	newMesh->VertexBuffer[14].Vertex = Vector3f(-halfSize, -halfSize,  halfSize); 
-	newMesh->VertexBuffer[15].Vertex = Vector3f(-halfSize, -halfSize, -halfSize); 
+	newMesh->VertexData[12].Vertex = Vector3f(-halfSize,  halfSize, -halfSize); 
+	newMesh->VertexData[13].Vertex = Vector3f(-halfSize,  halfSize,  halfSize); 
+	newMesh->VertexData[14].Vertex = Vector3f(-halfSize, -halfSize,  halfSize); 
+	newMesh->VertexData[15].Vertex = Vector3f(-halfSize, -halfSize, -halfSize); 
 
-	newMesh->VertexBuffer[12].Texcoord = Vector2f(0.0f, 0.0f);
-	newMesh->VertexBuffer[13].Texcoord = Vector2f(1.0f, 0.0f);
-	newMesh->VertexBuffer[14].Texcoord = Vector2f(1.0f, 1.0f);
-	newMesh->VertexBuffer[15].Texcoord = Vector2f(0.0f, 1.0f);
+	newMesh->VertexData[12].Texcoord = Vector2f(0.0f, 0.0f);
+	newMesh->VertexData[13].Texcoord = Vector2f(1.0f, 0.0f);
+	newMesh->VertexData[14].Texcoord = Vector2f(1.0f, 1.0f);
+	newMesh->VertexData[15].Texcoord = Vector2f(0.0f, 1.0f);
 
-	newMesh->VertexBuffer[12].Normal = Vector3f(-1.0f, 0.0f, 0.0f);
-	newMesh->VertexBuffer[13].Normal = Vector3f(-1.0f, 0.0f, 0.0f);
-	newMesh->VertexBuffer[14].Normal = Vector3f(-1.0f, 0.0f, 0.0f);
-	newMesh->VertexBuffer[15].Normal = Vector3f(-1.0f, 0.0f, 0.0f);
+	newMesh->VertexData[12].Normal = Vector3f(-1.0f, 0.0f, 0.0f);
+	newMesh->VertexData[13].Normal = Vector3f(-1.0f, 0.0f, 0.0f);
+	newMesh->VertexData[14].Normal = Vector3f(-1.0f, 0.0f, 0.0f);
+	newMesh->VertexData[15].Normal = Vector3f(-1.0f, 0.0f, 0.0f);
 
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[12], newMesh->VertexBuffer[13], newMesh->VertexBuffer[15], 
-									  newMesh->VertexBuffer[12].Tangent, newMesh->VertexBuffer[12].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[13], newMesh->VertexBuffer[12], newMesh->VertexBuffer[14], 
-									  newMesh->VertexBuffer[13].Tangent, newMesh->VertexBuffer[13].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[14], newMesh->VertexBuffer[13], newMesh->VertexBuffer[15], 
-									  newMesh->VertexBuffer[14].Tangent, newMesh->VertexBuffer[14].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[15], newMesh->VertexBuffer[14], newMesh->VertexBuffer[12], 
-									  newMesh->VertexBuffer[15].Tangent, newMesh->VertexBuffer[15].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[12], newMesh->VertexData[13], newMesh->VertexData[15], 
+	//								  newMesh->VertexData[12].Tangent, newMesh->VertexData[12].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[13], newMesh->VertexData[12], newMesh->VertexData[14], 
+	//								  newMesh->VertexData[13].Tangent, newMesh->VertexData[13].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[14], newMesh->VertexData[13], newMesh->VertexData[15], 
+	//								  newMesh->VertexData[14].Tangent, newMesh->VertexData[14].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[15], newMesh->VertexData[14], newMesh->VertexData[12], 
+	//								  newMesh->VertexData[15].Tangent, newMesh->VertexData[15].Binormal);
 
 	// anti clock wise vertex winding order
-	newMesh->IndexBuffer[18] = 12; 
-	newMesh->IndexBuffer[19] = 15; 
-	newMesh->IndexBuffer[20] = 14; 
+	newMesh->IndexData[18] = 12; 
+	newMesh->IndexData[19] = 15; 
+	newMesh->IndexData[20] = 14; 
 
-	newMesh->IndexBuffer[21] = 12; 
-	newMesh->IndexBuffer[22] = 14; 
-	newMesh->IndexBuffer[23] = 13; 
+	newMesh->IndexData[21] = 12; 
+	newMesh->IndexData[22] = 14; 
+	newMesh->IndexData[23] = 13; 
 
 	// Front Face
-	newMesh->VertexBuffer[16].Vertex = Vector3f(-halfSize,  halfSize,  halfSize); 
-	newMesh->VertexBuffer[17].Vertex = Vector3f( halfSize,  halfSize,  halfSize); 
-	newMesh->VertexBuffer[18].Vertex = Vector3f( halfSize, -halfSize,  halfSize); 
-	newMesh->VertexBuffer[19].Vertex = Vector3f(-halfSize, -halfSize,  halfSize); 
+	newMesh->VertexData[16].Vertex = Vector3f(-halfSize,  halfSize,  halfSize); 
+	newMesh->VertexData[17].Vertex = Vector3f( halfSize,  halfSize,  halfSize); 
+	newMesh->VertexData[18].Vertex = Vector3f( halfSize, -halfSize,  halfSize); 
+	newMesh->VertexData[19].Vertex = Vector3f(-halfSize, -halfSize,  halfSize); 
 
-	newMesh->VertexBuffer[16].Texcoord = Vector2f(0.0f, 0.0f);
-	newMesh->VertexBuffer[17].Texcoord = Vector2f(1.0f, 0.0f);
-	newMesh->VertexBuffer[18].Texcoord = Vector2f(1.0f, 1.0f);
-	newMesh->VertexBuffer[19].Texcoord = Vector2f(0.0f, 1.0f);
+	newMesh->VertexData[16].Texcoord = Vector2f(0.0f, 0.0f);
+	newMesh->VertexData[17].Texcoord = Vector2f(1.0f, 0.0f);
+	newMesh->VertexData[18].Texcoord = Vector2f(1.0f, 1.0f);
+	newMesh->VertexData[19].Texcoord = Vector2f(0.0f, 1.0f);
 
-	newMesh->VertexBuffer[16].Normal = Vector3f(0.0f, 0.0f, 1.0f);
-	newMesh->VertexBuffer[17].Normal = Vector3f(0.0f, 0.0f, 1.0f);
-	newMesh->VertexBuffer[18].Normal = Vector3f(0.0f, 0.0f, 1.0f);
-	newMesh->VertexBuffer[19].Normal = Vector3f(0.0f, 0.0f, 1.0f);
+	newMesh->VertexData[16].Normal = Vector3f(0.0f, 0.0f, 1.0f);
+	newMesh->VertexData[17].Normal = Vector3f(0.0f, 0.0f, 1.0f);
+	newMesh->VertexData[18].Normal = Vector3f(0.0f, 0.0f, 1.0f);
+	newMesh->VertexData[19].Normal = Vector3f(0.0f, 0.0f, 1.0f);
 
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[16], newMesh->VertexBuffer[17], newMesh->VertexBuffer[19], 
-									  newMesh->VertexBuffer[16].Tangent, newMesh->VertexBuffer[16].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[17], newMesh->VertexBuffer[16], newMesh->VertexBuffer[18], 
-									  newMesh->VertexBuffer[17].Tangent, newMesh->VertexBuffer[17].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[18], newMesh->VertexBuffer[17], newMesh->VertexBuffer[19], 
-									  newMesh->VertexBuffer[18].Tangent, newMesh->VertexBuffer[18].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[19], newMesh->VertexBuffer[18], newMesh->VertexBuffer[16], 
-									  newMesh->VertexBuffer[19].Tangent, newMesh->VertexBuffer[19].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[16], newMesh->VertexData[17], newMesh->VertexData[19], 
+	//								  newMesh->VertexData[16].Tangent, newMesh->VertexData[16].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[17], newMesh->VertexData[16], newMesh->VertexData[18], 
+	//								  newMesh->VertexData[17].Tangent, newMesh->VertexData[17].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[18], newMesh->VertexData[17], newMesh->VertexData[19], 
+	//								  newMesh->VertexData[18].Tangent, newMesh->VertexData[18].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[19], newMesh->VertexData[18], newMesh->VertexData[16], 
+	//								  newMesh->VertexData[19].Tangent, newMesh->VertexData[19].Binormal);
 
 	// anti clock wise vertex winding order
-	newMesh->IndexBuffer[24] = 16; 
-	newMesh->IndexBuffer[25] = 19; 
-	newMesh->IndexBuffer[26] = 18; 
+	newMesh->IndexData[24] = 16; 
+	newMesh->IndexData[25] = 19; 
+	newMesh->IndexData[26] = 18; 
 
-	newMesh->IndexBuffer[27] = 16; 
-	newMesh->IndexBuffer[28] = 18; 
-	newMesh->IndexBuffer[29] = 17; 
+	newMesh->IndexData[27] = 16; 
+	newMesh->IndexData[28] = 18; 
+	newMesh->IndexData[29] = 17; 
 
 	// Back Face
-	newMesh->VertexBuffer[20].Vertex = Vector3f(-halfSize,  halfSize, -halfSize); 
-	newMesh->VertexBuffer[21].Vertex = Vector3f( halfSize,  halfSize, -halfSize); 
-	newMesh->VertexBuffer[22].Vertex = Vector3f( halfSize, -halfSize, -halfSize); 
-	newMesh->VertexBuffer[23].Vertex = Vector3f(-halfSize, -halfSize, -halfSize); 
+	newMesh->VertexData[20].Vertex = Vector3f(-halfSize,  halfSize, -halfSize); 
+	newMesh->VertexData[21].Vertex = Vector3f( halfSize,  halfSize, -halfSize); 
+	newMesh->VertexData[22].Vertex = Vector3f( halfSize, -halfSize, -halfSize); 
+	newMesh->VertexData[23].Vertex = Vector3f(-halfSize, -halfSize, -halfSize); 
 
-	newMesh->VertexBuffer[20].Texcoord = Vector2f(0.0f, 0.0f);
-	newMesh->VertexBuffer[21].Texcoord = Vector2f(1.0f, 0.0f);
-	newMesh->VertexBuffer[22].Texcoord = Vector2f(1.0f, 1.0f);
-	newMesh->VertexBuffer[23].Texcoord = Vector2f(0.0f, 1.0f);
+	newMesh->VertexData[20].Texcoord = Vector2f(0.0f, 0.0f);
+	newMesh->VertexData[21].Texcoord = Vector2f(1.0f, 0.0f);
+	newMesh->VertexData[22].Texcoord = Vector2f(1.0f, 1.0f);
+	newMesh->VertexData[23].Texcoord = Vector2f(0.0f, 1.0f);
 
-	newMesh->VertexBuffer[20].Normal = Vector3f(0.0f, 0.0f, -1.0f);
-	newMesh->VertexBuffer[21].Normal = Vector3f(0.0f, 0.0f, -1.0f);
-	newMesh->VertexBuffer[22].Normal = Vector3f(0.0f, 0.0f, -1.0f);
-	newMesh->VertexBuffer[23].Normal = Vector3f(0.0f, 0.0f, -1.0f);
+	newMesh->VertexData[20].Normal = Vector3f(0.0f, 0.0f, -1.0f);
+	newMesh->VertexData[21].Normal = Vector3f(0.0f, 0.0f, -1.0f);
+	newMesh->VertexData[22].Normal = Vector3f(0.0f, 0.0f, -1.0f);
+	newMesh->VertexData[23].Normal = Vector3f(0.0f, 0.0f, -1.0f);
 
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[20], newMesh->VertexBuffer[21], newMesh->VertexBuffer[23], 
-									  newMesh->VertexBuffer[20].Tangent, newMesh->VertexBuffer[20].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[21], newMesh->VertexBuffer[20], newMesh->VertexBuffer[22], 
-									  newMesh->VertexBuffer[21].Tangent, newMesh->VertexBuffer[21].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[22], newMesh->VertexBuffer[21], newMesh->VertexBuffer[23], 
-									  newMesh->VertexBuffer[22].Tangent, newMesh->VertexBuffer[22].Binormal);
-	MeshShapes::CalculateTangentBinormal(newMesh->VertexBuffer[23], newMesh->VertexBuffer[22], newMesh->VertexBuffer[20], 
-									  newMesh->VertexBuffer[23].Tangent, newMesh->VertexBuffer[23].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[20], newMesh->VertexData[21], newMesh->VertexData[23], 
+	//								  newMesh->VertexData[20].Tangent, newMesh->VertexData[20].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[21], newMesh->VertexData[20], newMesh->VertexData[22], 
+	//								  newMesh->VertexData[21].Tangent, newMesh->VertexData[21].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[22], newMesh->VertexData[21], newMesh->VertexData[23], 
+	//								  newMesh->VertexData[22].Tangent, newMesh->VertexData[22].Binormal);
+	//MeshShapes::CalculateTangentBinormal(newMesh->VertexData[23], newMesh->VertexData[22], newMesh->VertexData[20], 
+	//								  newMesh->VertexData[23].Tangent, newMesh->VertexData[23].Binormal);
 
 	// clock wise vertex winding order
-	newMesh->IndexBuffer[30] = 20; 
-	newMesh->IndexBuffer[31] = 21; 
-	newMesh->IndexBuffer[32] = 22; 
+	newMesh->IndexData[30] = 20; 
+	newMesh->IndexData[31] = 21; 
+	newMesh->IndexData[32] = 22; 
 
-	newMesh->IndexBuffer[33] = 20; 
-	newMesh->IndexBuffer[34] = 22; 
-	newMesh->IndexBuffer[35] = 23; 
+	newMesh->IndexData[33] = 20; 
+	newMesh->IndexData[34] = 22; 
+	newMesh->IndexData[35] = 23; 
 
 	return newMesh;
 }
 
 Mesh* MeshShapes::CreateCylinder(float bottomRadius, float topRadius, float height, int sliceCount, int stackCount)
 {
-	vector<VertexFormat> VertexBufferContainer;
-	vector<unsigned long> IndexBufferContainer;
+	vector<VertexFormat> VertexDataContainer;
+	vector<unsigned long> IndexDataContainer;
 
 	// Calculate Cylinder Sides
 	float stackHeight = height / (float)stackCount;
@@ -469,12 +469,12 @@ Mesh* MeshShapes::CreateCylinder(float bottomRadius, float topRadius, float heig
 
 			newVertex.Vertex = Vector3f(r * cosAngle, y, r * sinAngle);
 			newVertex.Texcoord = Vector2f((float)j / sliceCount, 1.0f - (float)i / stackCount);
-			newVertex.Tangent = Vector3f(-sinAngle, 0.0f, cosAngle);
-			newVertex.Binormal = Vector3f(dr * cosAngle, -height, dr * sinAngle);
-			newVertex.Normal = Vector3f::Cross(newVertex.Tangent, newVertex.Binormal);
-			newVertex.Normal.Normalize();
+			//newVertex.Tangent = Vector3f(-sinAngle, 0.0f, cosAngle);
+			//newVertex.Binormal = Vector3f(dr * cosAngle, -height, dr * sinAngle);
+			//newVertex.Normal = Vector3f::Cross(newVertex.Tangent, newVertex.Binormal);
+			//newVertex.Normal.Normalize();
 
-			VertexBufferContainer.push_back(newVertex);
+			VertexDataContainer.push_back(newVertex);
 		}
 	}
 
@@ -484,18 +484,18 @@ Mesh* MeshShapes::CreateCylinder(float bottomRadius, float topRadius, float heig
 	{
 		for(int j = 0; j < sliceCount; j++)
 		{
-			IndexBufferContainer.push_back(i * ringVertexCount + j);
-			IndexBufferContainer.push_back((i + 1) * ringVertexCount + j);
-			IndexBufferContainer.push_back((i + 1) * ringVertexCount + j + 1);
+			IndexDataContainer.push_back(i * ringVertexCount + j);
+			IndexDataContainer.push_back((i + 1) * ringVertexCount + j);
+			IndexDataContainer.push_back((i + 1) * ringVertexCount + j + 1);
 
-			IndexBufferContainer.push_back(i * ringVertexCount + j);
-			IndexBufferContainer.push_back((i + 1) * ringVertexCount + j + 1);
-			IndexBufferContainer.push_back(i * ringVertexCount + j + 1);
+			IndexDataContainer.push_back(i * ringVertexCount + j);
+			IndexDataContainer.push_back((i + 1) * ringVertexCount + j + 1);
+			IndexDataContainer.push_back(i * ringVertexCount + j + 1);
 		}
 	}
 
 	// Calculate Top Cap
-	int baseIndex = VertexBufferContainer.size();
+	int baseIndex = VertexDataContainer.size();
 	float y = 0.5f * height;
 	float dTheta = 2.0f * Mathf::PI / sliceCount;
 
@@ -506,10 +506,10 @@ Mesh* MeshShapes::CreateCylinder(float bottomRadius, float topRadius, float heig
 		newVertex.Vertex = Vector3f(topRadius * cos(i * dTheta), y, topRadius * sin(i * dTheta));
 		newVertex.Texcoord = Vector2f(newVertex.Vertex.X / height + 0.5f, newVertex.Vertex.Z / height + 0.5f);
 		newVertex.Normal = Vector3f(0, 1, 0);
-		newVertex.Tangent = Vector3f(1, 0, 0);
-		newVertex.Binormal = Vector3f(0, 0, 1);
+		//newVertex.Tangent = Vector3f(1, 0, 0);
+		//newVertex.Binormal = Vector3f(0, 0, 1);
 
-		VertexBufferContainer.push_back(newVertex);
+		VertexDataContainer.push_back(newVertex);
 	}
 
 	VertexFormat newVertex;
@@ -517,21 +517,21 @@ Mesh* MeshShapes::CreateCylinder(float bottomRadius, float topRadius, float heig
 	newVertex.Vertex = Vector3f(0, y, 0);
 	newVertex.Texcoord = Vector2f(0.5f, 0.5f);
 	newVertex.Normal = Vector3f(0, 1, 0);
-	newVertex.Tangent = Vector3f(1, 0, 0);
-	newVertex.Binormal = Vector3f(0, 0, 1);
+	//newVertex.Tangent = Vector3f(1, 0, 0);
+	//newVertex.Binormal = Vector3f(0, 0, 1);
 
-	VertexBufferContainer.push_back(newVertex);
-	int centerIndex = VertexBufferContainer.size() - 1;
+	VertexDataContainer.push_back(newVertex);
+	int centerIndex = VertexDataContainer.size() - 1;
 
 	for(int i = 0; i < sliceCount; i++)
 	{
-		IndexBufferContainer.push_back(centerIndex);
-		IndexBufferContainer.push_back(baseIndex + i + 1);
-		IndexBufferContainer.push_back(baseIndex + i);
+		IndexDataContainer.push_back(centerIndex);
+		IndexDataContainer.push_back(baseIndex + i + 1);
+		IndexDataContainer.push_back(baseIndex + i);
 	}
 
 	// Calculate Bottom Cap
-	baseIndex = VertexBufferContainer.size();
+	baseIndex = VertexDataContainer.size();
 	y = -0.5f * height;
 	dTheta = 2.0f * Mathf::PI / sliceCount;
 
@@ -542,53 +542,53 @@ Mesh* MeshShapes::CreateCylinder(float bottomRadius, float topRadius, float heig
 		newVertex.Vertex = Vector3f(bottomRadius * cos(i * dTheta), y, bottomRadius * sin(i * dTheta));
 		newVertex.Texcoord = Vector2f(newVertex.Vertex.X / height + 0.5f, newVertex.Vertex.Z / height + 0.5f);
 		newVertex.Normal = Vector3f(0, -1, 0);
-		newVertex.Tangent = Vector3f(1, 0, 0);
-		newVertex.Binormal = Vector3f(0, 0, 1);
+		//newVertex.Tangent = Vector3f(1, 0, 0);
+		//newVertex.Binormal = Vector3f(0, 0, 1);
 
-		VertexBufferContainer.push_back(newVertex);
+		VertexDataContainer.push_back(newVertex);
 	}
 
 	newVertex.Vertex = Vector3f(0, y, 0);
 	newVertex.Texcoord = Vector2f(0.5f, 0.5f);
 	newVertex.Normal = Vector3f(0, -1, 0);
-	newVertex.Tangent = Vector3f(1, 0, 0);
-	newVertex.Binormal = Vector3f(0, 0, 1);
+	//newVertex.Tangent = Vector3f(1, 0, 0);
+	//newVertex.Binormal = Vector3f(0, 0, 1);
 
-	VertexBufferContainer.push_back(newVertex);
-	centerIndex = VertexBufferContainer.size() - 1;
+	VertexDataContainer.push_back(newVertex);
+	centerIndex = VertexDataContainer.size() - 1;
 
 	for(int i = 0; i < sliceCount; i++)
 	{
-		IndexBufferContainer.push_back(centerIndex);
-		IndexBufferContainer.push_back(baseIndex + i);
-		IndexBufferContainer.push_back(baseIndex + i + 1);
+		IndexDataContainer.push_back(centerIndex);
+		IndexDataContainer.push_back(baseIndex + i);
+		IndexDataContainer.push_back(baseIndex + i + 1);
 	}
 
 	// Assign Data To Mesh
 	Mesh *newMesh = new Mesh();
 
-	newMesh->VertexCount = VertexBufferContainer.size();
-	newMesh->IndexCount = IndexBufferContainer.size();
+	newMesh->VertexCount = VertexDataContainer.size();
+	newMesh->IndexCount = IndexDataContainer.size();
 
-	newMesh->VertexBuffer = new VertexFormat[newMesh->VertexCount];
-	newMesh->IndexBuffer = new unsigned long[newMesh->IndexCount];
+	newMesh->VertexData = new VertexFormat[newMesh->VertexCount];
+	newMesh->IndexData = new unsigned long[newMesh->IndexCount];
 
 	for(int i = 0; i < newMesh->VertexCount; i++)
 	{
-		newMesh->VertexBuffer[i].Vertex = VertexBufferContainer[i].Vertex;
-		newMesh->VertexBuffer[i].Texcoord = VertexBufferContainer[i].Texcoord;
-		newMesh->VertexBuffer[i].Normal = VertexBufferContainer[i].Normal;
-		newMesh->VertexBuffer[i].Tangent = VertexBufferContainer[i].Tangent;
-		newMesh->VertexBuffer[i].Binormal = VertexBufferContainer[i].Binormal;
+		newMesh->VertexData[i].Vertex = VertexDataContainer[i].Vertex;
+		newMesh->VertexData[i].Texcoord = VertexDataContainer[i].Texcoord;
+		newMesh->VertexData[i].Normal = VertexDataContainer[i].Normal;
+		//newMesh->VertexData[i].Tangent = VertexDataContainer[i].Tangent;
+		//newMesh->VertexData[i].Binormal = VertexDataContainer[i].Binormal;
 	}
 
 	for(int i = 0; i < newMesh->IndexCount; i++)
 	{
-		newMesh->IndexBuffer[i] = IndexBufferContainer[i];
+		newMesh->IndexData[i] = IndexDataContainer[i];
 	}
 
-	VertexBufferContainer.clear();
-	IndexBufferContainer.clear();
+	VertexDataContainer.clear();
+	IndexDataContainer.clear();
 
 	return newMesh;
 }
@@ -606,8 +606,8 @@ Mesh* MeshShapes::CreateGrid(float size, int divisions, float height)
 	newMesh->VertexCount = divisionPlusOne * divisionPlusOne;
 	newMesh->IndexCount = (divisions / 2) * (divisions / 2) * 24;
 
-	newMesh->VertexBuffer = new VertexFormat[newMesh->VertexCount];
-	newMesh->IndexBuffer = new unsigned long[newMesh->IndexCount];
+	newMesh->VertexData = new VertexFormat[newMesh->VertexCount];
+	newMesh->IndexData = new unsigned long[newMesh->IndexCount];
 
 	VertexFormat v1, v2, v3;
 
@@ -618,20 +618,20 @@ Mesh* MeshShapes::CreateGrid(float size, int divisions, float height)
 		{
 			int vtxIdx = x + z * divisionPlusOne;
 
-			newMesh->VertexBuffer[vtxIdx].Vertex = Vector3f(-halfSize + edgeLength * x, height, halfSize - edgeLength * z);
-			newMesh->VertexBuffer[vtxIdx].Texcoord = Vector2f((float)x / (float)divisions, (float)z / (float)divisions);
-			newMesh->VertexBuffer[vtxIdx].Normal = Vector3f(0, 1, 0);
+			newMesh->VertexData[vtxIdx].Vertex = Vector3f(-halfSize + edgeLength * x, height, halfSize - edgeLength * z);
+			newMesh->VertexData[vtxIdx].Texcoord = Vector2f((float)x / (float)divisions, (float)z / (float)divisions);
+			newMesh->VertexData[vtxIdx].Normal = Vector3f(0, 1, 0);
 
-			v1.Vertex = newMesh->VertexBuffer[vtxIdx].Vertex;
+			v1.Vertex = newMesh->VertexData[vtxIdx].Vertex;
 			v2.Vertex = Vector3f(-halfSize + edgeLength * (x + 1), height, halfSize - edgeLength * z);
 			v3.Vertex = Vector3f(-halfSize + edgeLength * x, height, halfSize - edgeLength * (z + 1));
 
-			v1.Texcoord = newMesh->VertexBuffer[vtxIdx].Texcoord;
+			v1.Texcoord = newMesh->VertexData[vtxIdx].Texcoord;
 			v2.Texcoord = Vector2f((float)(x + 1) / (float)divisions, (float)z / (float)divisions);
 			v3.Texcoord = Vector2f((float)x / (float)divisions, (float)(z + 1) / (float)divisions);
 
-			MeshShapes::CalculateTangentBinormal(v1, v2, v3, newMesh->VertexBuffer[vtxIdx].Tangent, newMesh->VertexBuffer[vtxIdx].Binormal);		
-			MeshShapes::CalculateNormal(newMesh->VertexBuffer[vtxIdx].Tangent, newMesh->VertexBuffer[vtxIdx].Binormal, newMesh->VertexBuffer[vtxIdx].Normal);
+			//MeshShapes::CalculateTangentBinormal(v1, v2, v3, newMesh->VertexData[vtxIdx].Tangent, newMesh->VertexData[vtxIdx].Binormal);		
+			//MeshShapes::CalculateNormal(newMesh->VertexData[vtxIdx].Tangent, newMesh->VertexData[vtxIdx].Binormal, newMesh->VertexData[vtxIdx].Normal);
 		}
 	}
 
@@ -657,37 +657,37 @@ Mesh* MeshShapes::CreateGrid(float size, int divisions, float height)
 			idx12 = ((x + halfIncrementLimit) +  (z + incrementLimit) * (divisionPlusOne));
 			idx22 = ((x + incrementLimit) + (z + incrementLimit) * (divisionPlusOne));
 
-			newMesh->IndexBuffer[iCount] = idx00;
-			newMesh->IndexBuffer[iCount + 1] = idx10;
-			newMesh->IndexBuffer[iCount + 2] = idx11;
+			newMesh->IndexData[iCount] = idx00;
+			newMesh->IndexData[iCount + 1] = idx10;
+			newMesh->IndexData[iCount + 2] = idx11;
 
-			newMesh->IndexBuffer[iCount + 3] = idx00;
-			newMesh->IndexBuffer[iCount + 4] = idx11;
-			newMesh->IndexBuffer[iCount + 5] = idx01;
+			newMesh->IndexData[iCount + 3] = idx00;
+			newMesh->IndexData[iCount + 4] = idx11;
+			newMesh->IndexData[iCount + 5] = idx01;
 
-			newMesh->IndexBuffer[iCount + 6] = idx10;
-			newMesh->IndexBuffer[iCount + 7] = idx20;
-			newMesh->IndexBuffer[iCount + 8] = idx11;
+			newMesh->IndexData[iCount + 6] = idx10;
+			newMesh->IndexData[iCount + 7] = idx20;
+			newMesh->IndexData[iCount + 8] = idx11;
 
-			newMesh->IndexBuffer[iCount + 9] = idx20;
-			newMesh->IndexBuffer[iCount + 10] = idx21;
-			newMesh->IndexBuffer[iCount + 11] = idx11;
+			newMesh->IndexData[iCount + 9] = idx20;
+			newMesh->IndexData[iCount + 10] = idx21;
+			newMesh->IndexData[iCount + 11] = idx11;
 
-			newMesh->IndexBuffer[iCount + 12] = idx01;
-			newMesh->IndexBuffer[iCount + 13] = idx11;
-			newMesh->IndexBuffer[iCount + 14] = idx02;
+			newMesh->IndexData[iCount + 12] = idx01;
+			newMesh->IndexData[iCount + 13] = idx11;
+			newMesh->IndexData[iCount + 14] = idx02;
 
-			newMesh->IndexBuffer[iCount + 15] = idx02;
-			newMesh->IndexBuffer[iCount + 16] = idx11;
-			newMesh->IndexBuffer[iCount + 17] = idx12;
+			newMesh->IndexData[iCount + 15] = idx02;
+			newMesh->IndexData[iCount + 16] = idx11;
+			newMesh->IndexData[iCount + 17] = idx12;
 
-			newMesh->IndexBuffer[iCount + 18] = idx11;
-			newMesh->IndexBuffer[iCount + 19] = idx22;
-			newMesh->IndexBuffer[iCount + 20] = idx12;
+			newMesh->IndexData[iCount + 18] = idx11;
+			newMesh->IndexData[iCount + 19] = idx22;
+			newMesh->IndexData[iCount + 20] = idx12;
 
-			newMesh->IndexBuffer[iCount + 21] = idx11;
-			newMesh->IndexBuffer[iCount + 22] = idx21;
-			newMesh->IndexBuffer[iCount + 23] = idx22;
+			newMesh->IndexData[iCount + 21] = idx11;
+			newMesh->IndexData[iCount + 22] = idx21;
+			newMesh->IndexData[iCount + 23] = idx22;
 
 			iCount += 24;
 		}
@@ -709,8 +709,8 @@ Mesh* MeshShapes::CreateGrid(float size, int divisions, BYTE *heightData, float 
 	newMesh->VertexCount = divisionPlusOne * divisionPlusOne;
 	newMesh->IndexCount = (divisions / 2) * (divisions / 2) * 24;
 
-	newMesh->VertexBuffer = new VertexFormat[newMesh->VertexCount];
-	newMesh->IndexBuffer = new unsigned long[newMesh->IndexCount];
+	newMesh->VertexData = new VertexFormat[newMesh->VertexCount];
+	newMesh->IndexData = new unsigned long[newMesh->IndexCount];
 
 	VertexFormat v1, v2, v3;
 	float h1, h2, h3;
@@ -745,20 +745,20 @@ Mesh* MeshShapes::CreateGrid(float size, int divisions, BYTE *heightData, float 
 				h3 = h1;
 			}
 
-			newMesh->VertexBuffer[vtxIdx1].Vertex = Vector3f(-halfSize + edgeLength * x, h1, halfSize - edgeLength * z);
-			newMesh->VertexBuffer[vtxIdx1].Texcoord = Vector2f((float)x / (float)divisions, (float)z / (float)divisions);
-			newMesh->VertexBuffer[vtxIdx1].Normal = Vector3f(0, 1, 0);
+			newMesh->VertexData[vtxIdx1].Vertex = Vector3f(-halfSize + edgeLength * x, h1, halfSize - edgeLength * z);
+			newMesh->VertexData[vtxIdx1].Texcoord = Vector2f((float)x / (float)divisions, (float)z / (float)divisions);
+			newMesh->VertexData[vtxIdx1].Normal = Vector3f(0, 1, 0);
 
-			v1.Vertex = newMesh->VertexBuffer[vtxIdx1].Vertex;
+			v1.Vertex = newMesh->VertexData[vtxIdx1].Vertex;
 			v2.Vertex = Vector3f(-halfSize + edgeLength * (x + 1), h2, halfSize - edgeLength * z);
 			v3.Vertex = Vector3f(-halfSize + edgeLength * x, h3, halfSize - edgeLength * (z + 1));
 
-			v1.Texcoord = newMesh->VertexBuffer[vtxIdx1].Texcoord;
+			v1.Texcoord = newMesh->VertexData[vtxIdx1].Texcoord;
 			v2.Texcoord = Vector2f((float)(x + 1) / (float)divisions, (float)z / (float)divisions);
 			v3.Texcoord = Vector2f((float)x / (float)divisions, (float)(z + 1) / (float)divisions);
 
-			MeshShapes::CalculateTangentBinormal(v1, v2, v3, newMesh->VertexBuffer[vtxIdx1].Tangent, newMesh->VertexBuffer[vtxIdx1].Binormal);
-			MeshShapes::CalculateNormal(newMesh->VertexBuffer[vtxIdx1].Tangent, newMesh->VertexBuffer[vtxIdx1].Binormal, newMesh->VertexBuffer[vtxIdx1].Normal);
+			//MeshShapes::CalculateTangentBinormal(v1, v2, v3, newMesh->VertexData[vtxIdx1].Tangent, newMesh->VertexData[vtxIdx1].Binormal);
+			//MeshShapes::CalculateNormal(newMesh->VertexData[vtxIdx1].Tangent, newMesh->VertexData[vtxIdx1].Binormal, newMesh->VertexData[vtxIdx1].Normal);
 		}
 	}
 
@@ -777,7 +777,7 @@ Mesh* MeshShapes::CreateGrid(float size, int divisions, BYTE *heightData, float 
 			if((x - 1) >= 0 && (z + 1) < (divisionPlusOne))
 			{
 				vtxIdx = (x - 1) + (z + 1) * (divisionPlusOne);
-				sum += newMesh->VertexBuffer[vtxIdx].Normal;
+				sum += newMesh->VertexData[vtxIdx].Normal;
 				count++;
 			}
 
@@ -785,7 +785,7 @@ Mesh* MeshShapes::CreateGrid(float size, int divisions, BYTE *heightData, float 
 			if((x + 1) < (divisionPlusOne) && (z + 1) < (divisionPlusOne))
 			{
 				vtxIdx = (x + 1) + (z + 1) * (divisionPlusOne);
-				sum += newMesh->VertexBuffer[vtxIdx].Normal;
+				sum += newMesh->VertexData[vtxIdx].Normal;
 				count++;
 			}
 
@@ -793,7 +793,7 @@ Mesh* MeshShapes::CreateGrid(float size, int divisions, BYTE *heightData, float 
 			if((x - 1) >= 0 && (z - 1) >= 0)
 			{
 				vtxIdx = (x - 1) + (z - 1) * (divisionPlusOne);
-				sum += newMesh->VertexBuffer[vtxIdx].Normal;
+				sum += newMesh->VertexData[vtxIdx].Normal;
 				count++;
 			}
 
@@ -801,7 +801,7 @@ Mesh* MeshShapes::CreateGrid(float size, int divisions, BYTE *heightData, float 
 			if((x + 1) < (divisionPlusOne) && (z - 1) >= 0)
 			{
 				vtxIdx = (x + 1) + (z - 1) * (divisionPlusOne);
-				sum += newMesh->VertexBuffer[vtxIdx].Normal;
+				sum += newMesh->VertexData[vtxIdx].Normal;
 				count++;
 			}
 
@@ -809,7 +809,7 @@ Mesh* MeshShapes::CreateGrid(float size, int divisions, BYTE *heightData, float 
 			if((x - 1) >= 0)
 			{
 				vtxIdx = (x - 1) + z * (divisionPlusOne);
-				sum += newMesh->VertexBuffer[vtxIdx].Normal;
+				sum += newMesh->VertexData[vtxIdx].Normal;
 				count++;
 			}
 
@@ -817,7 +817,7 @@ Mesh* MeshShapes::CreateGrid(float size, int divisions, BYTE *heightData, float 
 			if((x + 1) < (divisionPlusOne))
 			{
 				vtxIdx = (x + 1) + z * (divisionPlusOne);
-				sum += newMesh->VertexBuffer[vtxIdx].Normal;
+				sum += newMesh->VertexData[vtxIdx].Normal;
 				count++;
 			}
 
@@ -825,7 +825,7 @@ Mesh* MeshShapes::CreateGrid(float size, int divisions, BYTE *heightData, float 
 			if((z - 1) >= 0)
 			{
 				vtxIdx = x + (z - 1) * (divisionPlusOne);
-				sum += newMesh->VertexBuffer[vtxIdx].Normal;
+				sum += newMesh->VertexData[vtxIdx].Normal;
 				count++;
 			}
 
@@ -833,7 +833,7 @@ Mesh* MeshShapes::CreateGrid(float size, int divisions, BYTE *heightData, float 
 			if((z + 1) < (divisionPlusOne))
 			{
 				vtxIdx = x + (z + 1) * (divisionPlusOne);
-				sum += newMesh->VertexBuffer[vtxIdx].Normal;
+				sum += newMesh->VertexData[vtxIdx].Normal;
 				count++;
 			}
 
@@ -843,7 +843,7 @@ Mesh* MeshShapes::CreateGrid(float size, int divisions, BYTE *heightData, float 
 			sum.Z = sum.Z / (float)count;
 
 			vtxIdx = x + z * (divisionPlusOne);
-			newMesh->VertexBuffer[vtxIdx].Normal = sum.Normalize();
+			newMesh->VertexData[vtxIdx].Normal = sum.Normalize();
 		}
 	}
 
@@ -869,37 +869,37 @@ Mesh* MeshShapes::CreateGrid(float size, int divisions, BYTE *heightData, float 
 			idx12 = ((x + halfIncrementLimit) +  (z + incrementLimit) * (divisionPlusOne));
 			idx22 = ((x + incrementLimit) + (z + incrementLimit) * (divisionPlusOne));
 
-			newMesh->IndexBuffer[iCount] = idx00;
-			newMesh->IndexBuffer[iCount + 1] = idx10;
-			newMesh->IndexBuffer[iCount + 2] = idx11;
+			newMesh->IndexData[iCount] = idx00;
+			newMesh->IndexData[iCount + 1] = idx10;
+			newMesh->IndexData[iCount + 2] = idx11;
 
-			newMesh->IndexBuffer[iCount + 3] = idx00;
-			newMesh->IndexBuffer[iCount + 4] = idx11;
-			newMesh->IndexBuffer[iCount + 5] = idx01;
+			newMesh->IndexData[iCount + 3] = idx00;
+			newMesh->IndexData[iCount + 4] = idx11;
+			newMesh->IndexData[iCount + 5] = idx01;
 
-			newMesh->IndexBuffer[iCount + 6] = idx10;
-			newMesh->IndexBuffer[iCount + 7] = idx20;
-			newMesh->IndexBuffer[iCount + 8] = idx11;
+			newMesh->IndexData[iCount + 6] = idx10;
+			newMesh->IndexData[iCount + 7] = idx20;
+			newMesh->IndexData[iCount + 8] = idx11;
 
-			newMesh->IndexBuffer[iCount + 9] = idx20;
-			newMesh->IndexBuffer[iCount + 10] = idx21;
-			newMesh->IndexBuffer[iCount + 11] = idx11;
+			newMesh->IndexData[iCount + 9] = idx20;
+			newMesh->IndexData[iCount + 10] = idx21;
+			newMesh->IndexData[iCount + 11] = idx11;
 
-			newMesh->IndexBuffer[iCount + 12] = idx01;
-			newMesh->IndexBuffer[iCount + 13] = idx11;
-			newMesh->IndexBuffer[iCount + 14] = idx02;
+			newMesh->IndexData[iCount + 12] = idx01;
+			newMesh->IndexData[iCount + 13] = idx11;
+			newMesh->IndexData[iCount + 14] = idx02;
 
-			newMesh->IndexBuffer[iCount + 15] = idx02;
-			newMesh->IndexBuffer[iCount + 16] = idx11;
-			newMesh->IndexBuffer[iCount + 17] = idx12;
+			newMesh->IndexData[iCount + 15] = idx02;
+			newMesh->IndexData[iCount + 16] = idx11;
+			newMesh->IndexData[iCount + 17] = idx12;
 
-			newMesh->IndexBuffer[iCount + 18] = idx11;
-			newMesh->IndexBuffer[iCount + 19] = idx22;
-			newMesh->IndexBuffer[iCount + 20] = idx12;
+			newMesh->IndexData[iCount + 18] = idx11;
+			newMesh->IndexData[iCount + 19] = idx22;
+			newMesh->IndexData[iCount + 20] = idx12;
 
-			newMesh->IndexBuffer[iCount + 21] = idx11;
-			newMesh->IndexBuffer[iCount + 22] = idx21;
-			newMesh->IndexBuffer[iCount + 23] = idx22;
+			newMesh->IndexData[iCount + 21] = idx11;
+			newMesh->IndexData[iCount + 22] = idx21;
+			newMesh->IndexData[iCount + 23] = idx22;
 
 			iCount += 24;
 		}
@@ -923,8 +923,8 @@ Mesh* MeshShapes::CreateSphere(float radius, int divisions)
 	newMesh->VertexCount = perSurfaceVertexCount * 6;
 	newMesh->IndexCount = ((divisions / 2) * (divisions / 2) * 24) * 6;
 
-	newMesh->VertexBuffer = new VertexFormat[newMesh->VertexCount];
-	newMesh->IndexBuffer = new unsigned long[newMesh->IndexCount];
+	newMesh->VertexData = new VertexFormat[newMesh->VertexCount];
+	newMesh->IndexData = new unsigned long[newMesh->IndexCount];
 	
 	Matrix4x4f modelMatrix;
 
@@ -977,9 +977,9 @@ Mesh* MeshShapes::CreateSphere(float radius, int divisions)
 
 				vertex = modelMatrix * vertex;
 				Vector3f finalVertex = Mathf::CubeToSphereMapping(vertex);
-				newMesh->VertexBuffer[vtxIdx].Vertex = finalVertex * radius;
+				newMesh->VertexData[vtxIdx].Vertex = finalVertex * radius;
 
-				v1.Vertex = newMesh->VertexBuffer[vtxIdx].Vertex;
+				v1.Vertex = newMesh->VertexData[vtxIdx].Vertex;
 				
 				Vector3f _v2;
 				_v2 = Vector3f(-halfSize + edgeLength * (x + 1), halfSize, halfSize - edgeLength * z);
@@ -991,13 +991,13 @@ Mesh* MeshShapes::CreateSphere(float radius, int divisions)
 				_v3 = modelMatrix * _v3;
 				v3.Vertex = Mathf::CubeToSphereMapping(_v3) * radius;
 
-				newMesh->VertexBuffer[vtxIdx].Texcoord = Vector2f((float)x / (float)divisions, ((float)z / (float)divisions));					
-				v1.Texcoord = newMesh->VertexBuffer[vtxIdx].Texcoord;
+				newMesh->VertexData[vtxIdx].Texcoord = Vector2f((float)x / (float)divisions, ((float)z / (float)divisions));					
+				v1.Texcoord = newMesh->VertexData[vtxIdx].Texcoord;
 				v2.Texcoord = Vector2f((float)(x + 1) / (float)divisions, ((float)z / (float)divisions));
 				v3.Texcoord = Vector2f((float)x / (float)divisions, ((float)(z + 1) / (float)divisions));
 
-				MeshShapes::CalculateTangentBinormal(v1, v2, v3, newMesh->VertexBuffer[vtxIdx].Tangent, newMesh->VertexBuffer[vtxIdx].Binormal);
-				newMesh->VertexBuffer[vtxIdx].Normal = finalVertex;
+				//MeshShapes::CalculateTangentBinormal(v1, v2, v3, newMesh->VertexData[vtxIdx].Tangent, newMesh->VertexData[vtxIdx].Binormal);
+				newMesh->VertexData[vtxIdx].Normal = finalVertex;
 			}
 		}
 	}
@@ -1026,37 +1026,37 @@ Mesh* MeshShapes::CreateSphere(float radius, int divisions)
 				idx12 = ((x + halfIncrementLimit) +  (z + incrementLimit) * (divisionPlusOne)) + (i * perSurfaceVertexCount);
 				idx22 = ((x + incrementLimit) + (z + incrementLimit) * (divisionPlusOne)) + (i * perSurfaceVertexCount);
 
-				newMesh->IndexBuffer[iCount] = idx00;
-				newMesh->IndexBuffer[iCount + 1] = idx10;
-				newMesh->IndexBuffer[iCount + 2] = idx11;
+				newMesh->IndexData[iCount] = idx00;
+				newMesh->IndexData[iCount + 1] = idx10;
+				newMesh->IndexData[iCount + 2] = idx11;
 
-				newMesh->IndexBuffer[iCount + 3] = idx00;
-				newMesh->IndexBuffer[iCount + 4] = idx11;
-				newMesh->IndexBuffer[iCount + 5] = idx01;
+				newMesh->IndexData[iCount + 3] = idx00;
+				newMesh->IndexData[iCount + 4] = idx11;
+				newMesh->IndexData[iCount + 5] = idx01;
 
-				newMesh->IndexBuffer[iCount + 6] = idx10;
-				newMesh->IndexBuffer[iCount + 7] = idx20;
-				newMesh->IndexBuffer[iCount + 8] = idx11;
+				newMesh->IndexData[iCount + 6] = idx10;
+				newMesh->IndexData[iCount + 7] = idx20;
+				newMesh->IndexData[iCount + 8] = idx11;
 
-				newMesh->IndexBuffer[iCount + 9] = idx20;
-				newMesh->IndexBuffer[iCount + 10] = idx21;
-				newMesh->IndexBuffer[iCount + 11] = idx11;
+				newMesh->IndexData[iCount + 9] = idx20;
+				newMesh->IndexData[iCount + 10] = idx21;
+				newMesh->IndexData[iCount + 11] = idx11;
 
-				newMesh->IndexBuffer[iCount + 12] = idx01;
-				newMesh->IndexBuffer[iCount + 13] = idx11;
-				newMesh->IndexBuffer[iCount + 14] = idx02;
+				newMesh->IndexData[iCount + 12] = idx01;
+				newMesh->IndexData[iCount + 13] = idx11;
+				newMesh->IndexData[iCount + 14] = idx02;
 
-				newMesh->IndexBuffer[iCount + 15] = idx02;
-				newMesh->IndexBuffer[iCount + 16] = idx11;
-				newMesh->IndexBuffer[iCount + 17] = idx12;
+				newMesh->IndexData[iCount + 15] = idx02;
+				newMesh->IndexData[iCount + 16] = idx11;
+				newMesh->IndexData[iCount + 17] = idx12;
 
-				newMesh->IndexBuffer[iCount + 18] = idx11;
-				newMesh->IndexBuffer[iCount + 19] = idx22;
-				newMesh->IndexBuffer[iCount + 20] = idx12;
+				newMesh->IndexData[iCount + 18] = idx11;
+				newMesh->IndexData[iCount + 19] = idx22;
+				newMesh->IndexData[iCount + 20] = idx12;
 
-				newMesh->IndexBuffer[iCount + 21] = idx11;
-				newMesh->IndexBuffer[iCount + 22] = idx21;
-				newMesh->IndexBuffer[iCount + 23] = idx22;
+				newMesh->IndexData[iCount + 21] = idx11;
+				newMesh->IndexData[iCount + 22] = idx21;
+				newMesh->IndexData[iCount + 23] = idx22;
 
 				iCount += 24;
 			}
@@ -1068,17 +1068,17 @@ Mesh* MeshShapes::CreateSphere(float radius, int divisions)
 
 Mesh* MeshShapes::CreateSphere(float radius, int sliceCount, int stackCount)
 {
-	vector<VertexFormat> VertexBufferContainer;
-	vector<unsigned long> IndexBufferContainer;
+	vector<VertexFormat> VertexDataContainer;
+	vector<unsigned long> IndexDataContainer;
 
 	// Calculate Vertex Data
 	VertexFormat topVertex;
 	topVertex.Vertex = Vector3f(0, radius, 0);
 	topVertex.Texcoord = Vector2f(0.5f, 0);
 	topVertex.Normal = Vector3f(0, 1, 0);
-	topVertex.Tangent = Vector3f(1, 0, 0);
-	topVertex.Binormal = Vector3f(0, 0, 1);
-	VertexBufferContainer.push_back(topVertex);
+	//topVertex.Tangent = Vector3f(1, 0, 0);
+	//topVertex.Binormal = Vector3f(0, 0, 1);
+	VertexDataContainer.push_back(topVertex);
 
 	float phiStep = Mathf::PI / stackCount;
 	float thetaStep = 2.0f * Mathf::PI / sliceCount;
@@ -1099,13 +1099,13 @@ Mesh* MeshShapes::CreateSphere(float radius, int sliceCount, int stackCount)
 			newVertex.Texcoord = Vector2f(theta / (Mathf::PI * 2), phi / Mathf::PI); 
 			newVertex.Normal = newVertex.Vertex;
 			newVertex.Normal.Normalize();
-			newVertex.Tangent = Vector3f(-radius * sin(phi) * sin(theta),
+/*			newVertex.Tangent = Vector3f(-radius * sin(phi) * sin(theta),
 										 0,
 										 radius * sin(phi) * cos(theta));
 			newVertex.Binormal = Vector3f(radius * sin(phi) * sin(theta),
 										  0,
-										  -radius * sin(phi) * cos(theta));			
-			VertexBufferContainer.push_back(newVertex);
+										  -radius * sin(phi) * cos(theta));	*/		
+			VertexDataContainer.push_back(newVertex);
 		}
 	}
 
@@ -1113,16 +1113,16 @@ Mesh* MeshShapes::CreateSphere(float radius, int sliceCount, int stackCount)
 	bottomVertex.Vertex = Vector3f(0, -radius, 0);
 	bottomVertex.Texcoord = Vector2f(0.5f, 1);
 	bottomVertex.Normal = Vector3f(0, -1, 0);
-	bottomVertex.Tangent = Vector3f(1, 0, 0);
-	bottomVertex.Binormal = Vector3f(0, 0, 1);
-	VertexBufferContainer.push_back(bottomVertex);
+	//bottomVertex.Tangent = Vector3f(1, 0, 0);
+	//bottomVertex.Binormal = Vector3f(0, 0, 1);
+	VertexDataContainer.push_back(bottomVertex);
 
 	// Calculate Index Data
 	for(int i = 1; i <= sliceCount; i++)
 	{
-		IndexBufferContainer.push_back(0);
-		IndexBufferContainer.push_back(i + 1);
-		IndexBufferContainer.push_back(i);
+		IndexDataContainer.push_back(0);
+		IndexDataContainer.push_back(i + 1);
+		IndexDataContainer.push_back(i);
 	}
 
 	int baseIndex = 1;
@@ -1132,58 +1132,58 @@ Mesh* MeshShapes::CreateSphere(float radius, int sliceCount, int stackCount)
 	{
 		for(int j = 0; j < sliceCount; j++)
 		{
-			IndexBufferContainer.push_back(baseIndex + i * ringVertexCount + j);
-			IndexBufferContainer.push_back(baseIndex + i * ringVertexCount + j + 1);
-			IndexBufferContainer.push_back(baseIndex + (i + 1) * ringVertexCount + j);
+			IndexDataContainer.push_back(baseIndex + i * ringVertexCount + j);
+			IndexDataContainer.push_back(baseIndex + i * ringVertexCount + j + 1);
+			IndexDataContainer.push_back(baseIndex + (i + 1) * ringVertexCount + j);
 
-			IndexBufferContainer.push_back(baseIndex + (i + 1) * ringVertexCount + j);
-			IndexBufferContainer.push_back(baseIndex + i * ringVertexCount + j + 1);
-			IndexBufferContainer.push_back(baseIndex + (i + 1) * ringVertexCount + j + 1);
+			IndexDataContainer.push_back(baseIndex + (i + 1) * ringVertexCount + j);
+			IndexDataContainer.push_back(baseIndex + i * ringVertexCount + j + 1);
+			IndexDataContainer.push_back(baseIndex + (i + 1) * ringVertexCount + j + 1);
 		}
 	}
 
-	int southPoleIndex = VertexBufferContainer.size() - 1;
+	int southPoleIndex = VertexDataContainer.size() - 1;
 	baseIndex = southPoleIndex - ringVertexCount;
 	
 	for(int i = 0; i < sliceCount; i++)
 	{
-		IndexBufferContainer.push_back(southPoleIndex);
-		IndexBufferContainer.push_back(baseIndex + i);
-		IndexBufferContainer.push_back(baseIndex + i + 1);
+		IndexDataContainer.push_back(southPoleIndex);
+		IndexDataContainer.push_back(baseIndex + i);
+		IndexDataContainer.push_back(baseIndex + i + 1);
 	}
 
 	Mesh *newMesh = new Mesh();
 
-	newMesh->VertexCount = VertexBufferContainer.size();
-	newMesh->IndexCount = IndexBufferContainer.size();
+	newMesh->VertexCount = VertexDataContainer.size();
+	newMesh->IndexCount = IndexDataContainer.size();
 
-	newMesh->VertexBuffer = new VertexFormat[newMesh->VertexCount];
-	newMesh->IndexBuffer = new unsigned long[newMesh->IndexCount];
+	newMesh->VertexData = new VertexFormat[newMesh->VertexCount];
+	newMesh->IndexData = new unsigned long[newMesh->IndexCount];
 
 	for(int i = 0; i < newMesh->VertexCount; i++)
 	{
-		newMesh->VertexBuffer[i].Vertex = VertexBufferContainer[i].Vertex;
-		newMesh->VertexBuffer[i].Texcoord = VertexBufferContainer[i].Texcoord;
-		newMesh->VertexBuffer[i].Normal = VertexBufferContainer[i].Normal;
-		newMesh->VertexBuffer[i].Tangent = VertexBufferContainer[i].Tangent;
-		newMesh->VertexBuffer[i].Binormal = VertexBufferContainer[i].Binormal;
+		newMesh->VertexData[i].Vertex = VertexDataContainer[i].Vertex;
+		newMesh->VertexData[i].Texcoord = VertexDataContainer[i].Texcoord;
+		newMesh->VertexData[i].Normal = VertexDataContainer[i].Normal;
+		//newMesh->VertexData[i].Tangent = VertexDataContainer[i].Tangent;
+		//newMesh->VertexData[i].Binormal = VertexDataContainer[i].Binormal;
 	}
 
 	for(int i = 0; i < newMesh->IndexCount; i++)
 	{
-		newMesh->IndexBuffer[i] = IndexBufferContainer[i];
+		newMesh->IndexData[i] = IndexDataContainer[i];
 	}
 	
-	VertexBufferContainer.clear();
-	IndexBufferContainer.clear();
+	VertexDataContainer.clear();
+	IndexDataContainer.clear();
 
 	return newMesh;
 }
 
 Mesh* MeshShapes::CreateTorus(float outerRadius, float innerRadius, int outerSides, int innerSides)
 {
-	vector<VertexFormat> VertexBufferContainer;
-	vector<unsigned long> IndexBufferContainer;
+	vector<VertexFormat> VertexDataContainer;
+	vector<unsigned long> IndexDataContainer;
 
 	float innerAngleStep = Mathf::DegreeToRadian(360 / (float)innerSides);
 	float outerAngleStep = Mathf::DegreeToRadian(360 / (float)outerSides);
@@ -1215,13 +1215,13 @@ Mesh* MeshShapes::CreateTorus(float outerRadius, float innerRadius, int outerSid
 										innerRadius * cos(phi),
 										(innerRadius * sin(phi) * sin(theta)));
 			newVertex.Normal.Normalize();
-			newVertex.Tangent = Vector3f((innerRadius * sin(phi + Mathf::DegreeToRadian(90)) * cos(theta)),
-										 innerRadius * cos(phi + Mathf::DegreeToRadian(90)),
-										(innerRadius * sin(phi + Mathf::DegreeToRadian(90)) * sin(theta)));
-			newVertex.Tangent.Normalize();
-			newVertex.Binormal = Vector3f::Cross(newVertex.Normal, newVertex.Tangent);
+			//newVertex.Tangent = Vector3f((innerRadius * sin(phi + Mathf::DegreeToRadian(90)) * cos(theta)),
+			//							 innerRadius * cos(phi + Mathf::DegreeToRadian(90)),
+			//							(innerRadius * sin(phi + Mathf::DegreeToRadian(90)) * sin(theta)));
+			//newVertex.Tangent.Normalize();
+			//newVertex.Binormal = Vector3f::Cross(newVertex.Normal, newVertex.Tangent);
 			
-			VertexBufferContainer.push_back(newVertex);
+			VertexDataContainer.push_back(newVertex);
 		}
 	}
 
@@ -1231,41 +1231,41 @@ Mesh* MeshShapes::CreateTorus(float outerRadius, float innerRadius, int outerSid
 	{
 		for(int j = 0; j < innerSides; j++)
 		{
-			IndexBufferContainer.push_back(i * ringVertexCount + j);
-			IndexBufferContainer.push_back((i + 1) * ringVertexCount + j);
-			IndexBufferContainer.push_back((i + 1) * ringVertexCount + (j + 1));
+			IndexDataContainer.push_back(i * ringVertexCount + j);
+			IndexDataContainer.push_back((i + 1) * ringVertexCount + j);
+			IndexDataContainer.push_back((i + 1) * ringVertexCount + (j + 1));
 
-			IndexBufferContainer.push_back(i * ringVertexCount + j);			
-			IndexBufferContainer.push_back((i + 1) * ringVertexCount + (j + 1));
-			IndexBufferContainer.push_back(i * ringVertexCount + (j + 1));
+			IndexDataContainer.push_back(i * ringVertexCount + j);			
+			IndexDataContainer.push_back((i + 1) * ringVertexCount + (j + 1));
+			IndexDataContainer.push_back(i * ringVertexCount + (j + 1));
 		}
 	}
 
 	// Assign Mesh Data
 	Mesh *newMesh = new Mesh();
 
-	newMesh->VertexCount = VertexBufferContainer.size();
-	newMesh->IndexCount = IndexBufferContainer.size();
+	newMesh->VertexCount = VertexDataContainer.size();
+	newMesh->IndexCount = IndexDataContainer.size();
 
-	newMesh->VertexBuffer = new VertexFormat[newMesh->VertexCount];
-	newMesh->IndexBuffer = new unsigned long[newMesh->IndexCount];
+	newMesh->VertexData = new VertexFormat[newMesh->VertexCount];
+	newMesh->IndexData = new unsigned long[newMesh->IndexCount];
 
 	for(int i = 0; i < newMesh->VertexCount; i++)
 	{
-		newMesh->VertexBuffer[i].Vertex = VertexBufferContainer[i].Vertex;
-		newMesh->VertexBuffer[i].Texcoord = VertexBufferContainer[i].Texcoord;
-		newMesh->VertexBuffer[i].Normal = VertexBufferContainer[i].Normal;
-		newMesh->VertexBuffer[i].Tangent = VertexBufferContainer[i].Tangent;
-		newMesh->VertexBuffer[i].Binormal = VertexBufferContainer[i].Binormal;
+		newMesh->VertexData[i].Vertex = VertexDataContainer[i].Vertex;
+		newMesh->VertexData[i].Texcoord = VertexDataContainer[i].Texcoord;
+		newMesh->VertexData[i].Normal = VertexDataContainer[i].Normal;
+		//newMesh->VertexData[i].Tangent = VertexDataContainer[i].Tangent;
+		//newMesh->VertexData[i].Binormal = VertexDataContainer[i].Binormal;
 	}
 
 	for(int i = 0; i < newMesh->IndexCount; i++)
 	{
-		newMesh->IndexBuffer[i] = IndexBufferContainer[i];
+		newMesh->IndexData[i] = IndexDataContainer[i];
 	}
 
-	VertexBufferContainer.clear();
-	IndexBufferContainer.clear();
+	VertexDataContainer.clear();
+	IndexDataContainer.clear();
 
 	return newMesh;
 }
@@ -1340,8 +1340,8 @@ Mesh* MeshShapes::LoadModel(char *fileName)
 	newMesh->IndexCount = newMesh->VertexCount;
 
 	// Create the model using the vertex count that was read in.
-	newMesh->VertexBuffer = new VertexFormat[newMesh->VertexCount];
-	newMesh->IndexBuffer = new unsigned long[newMesh->IndexCount];
+	newMesh->VertexData = new VertexFormat[newMesh->VertexCount];
+	newMesh->IndexData = new unsigned long[newMesh->IndexCount];
 	// Read up to the beginning of the data.
 	modelFile.get(input);
 	while(input != ':')
@@ -1354,10 +1354,10 @@ Mesh* MeshShapes::LoadModel(char *fileName)
 	// read in the vertex data
 	for(i = 0; i < newMesh->VertexCount; i++)
 	{
-		modelFile >> newMesh->VertexBuffer[i].Vertex.X >> newMesh->VertexBuffer[i].Vertex.Y >> newMesh->VertexBuffer[i].Vertex.Z;
-		modelFile >> newMesh->VertexBuffer[i].Texcoord.X >> newMesh->VertexBuffer[i].Texcoord.Y;
-		modelFile >> newMesh->VertexBuffer[i].Normal.X >> newMesh->VertexBuffer[i].Normal.Y >> newMesh->VertexBuffer[i].Normal.Z;
-		newMesh->IndexBuffer[i] = i;
+		modelFile >> newMesh->VertexData[i].Vertex.X >> newMesh->VertexData[i].Vertex.Y >> newMesh->VertexData[i].Vertex.Z;
+		modelFile >> newMesh->VertexData[i].Texcoord.X >> newMesh->VertexData[i].Texcoord.Y;
+		modelFile >> newMesh->VertexData[i].Normal.X >> newMesh->VertexData[i].Normal.Y >> newMesh->VertexData[i].Normal.Z;
+		newMesh->IndexData[i] = i;
 	}
 
 	modelFile.close();

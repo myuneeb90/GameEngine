@@ -7,9 +7,9 @@ cbuffer MatrixBuffer
 cbuffer MaterialSurface
 {
 	float4 DiffuseColor;
-	float2 TextureTile;
-	float3 LightDirection;
-	float Padding;
+//	float2 TextureTile;
+//	float3 LightDirection;
+//	float Padding;
 };
 
 Texture2D MainTexture;
@@ -43,9 +43,9 @@ VertexOut VS(VertexIn vin)
 	
 	// Transform to homogeneous clip space.
 	vout.position = mul(float4(vin.position, 1.0f), WVP);
-	vout.tex = vin.tex;
-	vout.normal = mul(vin.normal, (float3x3)World);
-	vout.normal = normalize(vout.normal);
+//	vout.tex = vin.tex;
+//	vout.normal = mul(vin.normal, (float3x3)World);
+//	vout.normal = normalize(vout.normal);
 
     return vout;
 }
@@ -65,7 +65,7 @@ float4 PS(VertexOut pin) : SV_Target
 
 //	finalColor = saturate(finalColor);
 
-    return DiffuseColor * MainTexture.Sample(MainTextureSampler, pin.tex * TextureTile);
+    return float4(1, 0, 0, 1);//* MainTexture.Sample(MainTextureSampler, pin.tex * TextureTile);
 }
 
 technique11 DefaultTech
@@ -74,6 +74,6 @@ technique11 DefaultTech
     {
         SetVertexShader(CompileShader(vs_5_0, VS()));
 		SetGeometryShader(NULL);
-        SetPixelShader( CompileShader(ps_5_0, PS()));
+        SetPixelShader(CompileShader(ps_5_0, PS()));
     }
 }

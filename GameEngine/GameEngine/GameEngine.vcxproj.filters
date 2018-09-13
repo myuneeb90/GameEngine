@@ -69,6 +69,18 @@
     <Filter Include="Source Files\SceneEngine">
       <UniqueIdentifier>{16d14c63-8a6e-4f2d-8366-c02be27a4bf6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{f5a7378b-688e-4295-b1b0-004613789a38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Fonts">
+      <UniqueIdentifier>{46abac5a-b2b8-4bfb-a5fb-f33c1814b7f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Logs">
+      <UniqueIdentifier>{bb933b2f-2073-45a8-a38d-bae36f06c883}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Shaders">
+      <UniqueIdentifier>{1781d894-7fd4-44b0-91a0-bcabe30f6fd3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -194,6 +206,24 @@
     <ClCompile Include="RenderEngine\MeshShapes.cpp">
       <Filter>Source Files\RenderEngine</Filter>
     </ClCompile>
+    <ClCompile Include="RenderEngine\LineShapes.cpp">
+      <Filter>Source Files\RenderEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine\Texture2D.cpp">
+      <Filter>Source Files\RenderEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine\ShadersLib.cpp">
+      <Filter>Source Files\RenderEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="ECS\TransformSystem.cpp">
+      <Filter>Source Files\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreEngine\InputEngine.cpp">
+      <Filter>Source Files\CoreEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreEngine\TimeEngine.cpp">
+      <Filter>Source Files\CoreEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="gameengine.ui">
@@ -312,5 +342,37 @@
     <ClInclude Include="RenderEngine\MeshShapes.h">
       <Filter>Header Files\RenderEngine</Filter>
     </ClInclude>
+    <ClInclude Include="RenderEngine\LineShapes.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\Texture2D.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\ShadersLib.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\TransformSystem.h">
+      <Filter>Header Files\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEngine\InputEngine.h">
+      <Filter>Header Files\CoreEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEngine\TimeEngine.h">
+      <Filter>Header Files\CoreEngine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Shaders\Default.fx">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\FontShader.fx">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\LineShader.fx">
+      <Filter>Assets\Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\SpriteShader.fx">
+      <Filter>Assets\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

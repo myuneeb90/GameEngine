@@ -4,6 +4,7 @@ Entity::Entity()
 {
 	ComponentList = NULL;
 	ComponentList = new EList<BaseComponent>();
+	ComponentID = 0;
 }
 
 Entity::~Entity()
@@ -15,7 +16,9 @@ Entity::~Entity()
 
 void Entity::AddComponent(BaseComponent *component)
 {
+	component->ID = ComponentID;
 	ComponentList->Add(component);
+	ComponentID++;
 }
 
 void Entity::RemoveComponent(BaseComponent *component)

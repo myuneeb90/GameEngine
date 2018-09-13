@@ -8,6 +8,8 @@ class GlobalRefs
 			static DebugEngine *Debug;
 			static WindowEngine *Window;
 			static BaseScene *Scene;
+			static TimeEngine *Time;
+			static InputEngine *Input;
 };
 
 #endif

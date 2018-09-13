@@ -7,6 +7,8 @@ class WindowEngine
 {
 	public:
 			QStatusBar *StatusBar;
+			int ScreenWidth;
+			int ScreenHeight;
 	public:
 			WindowEngine();
 			virtual ~WindowEngine();

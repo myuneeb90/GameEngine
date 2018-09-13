@@ -17,6 +17,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -35,8 +36,8 @@
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\SoftwaresLibrary\Assimp\assimp-3.1.1-win-binaries\include;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\SoftwaresLibrary\Assimp\assimp-3.1.1-win-binaries\lib32;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\SoftwaresLibrary\Boost_Cpp\boost_1_68_0;D:\SoftwaresLibrary\Assimp\assimp-3.1.1-win-binaries\include;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\SoftwaresLibrary\Boost_Cpp\boost_1_68_0\stage\lib;D:\SoftwaresLibrary\Assimp\assimp-3.1.1-win-binaries\lib32;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -79,6 +80,8 @@
     <ClCompile Include="CoreEngine\DebugEngine.cpp" />
     <ClCompile Include="CoreEngine\GlobalRefs.cpp" />
     <ClCompile Include="CoreEngine\GraphicsEngine.cpp" />
+    <ClCompile Include="CoreEngine\InputEngine.cpp" />
+    <ClCompile Include="CoreEngine\TimeEngine.cpp" />
     <ClCompile Include="CoreEngine\WindowEngine.cpp" />
     <ClCompile Include="ECS\BaseComponent.cpp" />
     <ClCompile Include="ECS\BaseSystem.cpp" />
@@ -86,6 +89,7 @@
     <ClCompile Include="ECS\EntityGroup.cpp" />
     <ClCompile Include="ECS\EntityPool.cpp" />
     <ClCompile Include="ECS\RenderSystem.cpp" />
+    <ClCompile Include="ECS\TransformSystem.cpp" />
     <ClCompile Include="gameengine.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_D3DWidget.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -119,12 +123,15 @@
     <ClCompile Include="MathEngine\Vector4d.cpp" />
     <ClCompile Include="MathEngine\Vector4f.cpp" />
     <ClCompile Include="RenderEngine\Color.cpp" />
+    <ClCompile Include="RenderEngine\LineShapes.cpp" />
     <ClCompile Include="RenderEngine\Material.cpp" />
     <ClCompile Include="RenderEngine\MaterialFilter.cpp" />
     <ClCompile Include="RenderEngine\Mesh.cpp" />
     <ClCompile Include="RenderEngine\MeshFilter.cpp" />
     <ClCompile Include="RenderEngine\MeshShapes.cpp" />
     <ClCompile Include="RenderEngine\Shader.cpp" />
+    <ClCompile Include="RenderEngine\ShadersLib.cpp" />
+    <ClCompile Include="RenderEngine\Texture2D.cpp" />
     <ClCompile Include="SceneEngine\BaseScene.cpp" />
     <ClCompile Include="SceneEngine\GameScene.cpp" />
   </ItemGroup>
@@ -158,6 +165,8 @@
     <ClInclude Include="CoreEngine\AppMain.h" />
     <ClInclude Include="CoreEngine\DebugEngine.h" />
     <ClInclude Include="CoreEngine\GlobalRefs.h" />
+    <ClInclude Include="CoreEngine\InputEngine.h" />
+    <ClInclude Include="CoreEngine\TimeEngine.h" />
     <ClInclude Include="CoreEngine\WindowEngine.h" />
     <ClInclude Include="ECS\BaseComponent.h" />
     <ClInclude Include="ECS\BaseSystem.h" />
@@ -165,6 +174,7 @@
     <ClInclude Include="ECS\EntityGroup.h" />
     <ClInclude Include="ECS\EntityPool.h" />
     <ClInclude Include="ECS\RenderSystem.h" />
+    <ClInclude Include="ECS\TransformSystem.h" />
     <ClInclude Include="MathEngine\Mathd.h" />
     <ClInclude Include="MathEngine\Mathf.h" />
     <ClInclude Include="MathEngine\Matrix4x4d.h" />
@@ -178,12 +188,15 @@
     <ClInclude Include="MathEngine\Vector4d.h" />
     <ClInclude Include="MathEngine\Vector4f.h" />
     <ClInclude Include="RenderEngine\Color.h" />
+    <ClInclude Include="RenderEngine\LineShapes.h" />
     <ClInclude Include="RenderEngine\Material.h" />
     <ClInclude Include="RenderEngine\MaterialFilter.h" />
     <ClInclude Include="RenderEngine\Mesh.h" />
     <ClInclude Include="RenderEngine\MeshFilter.h" />
     <ClInclude Include="RenderEngine\MeshShapes.h" />
     <ClInclude Include="RenderEngine\Shader.h" />
+    <ClInclude Include="RenderEngine\ShadersLib.h" />
+    <ClInclude Include="RenderEngine\Texture2D.h" />
     <ClInclude Include="SceneEngine\BaseScene.h" />
     <ClInclude Include="SceneEngine\GameScene.h" />
     <CustomBuild Include="CoreEngine\D3DWidget.h">
@@ -211,6 +224,12 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\qrc_%(Filename).cpp;%(Outputs)</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\rcc.exe" -name "%(Filename)" -no-compress "%(FullPath)" -o .\GeneratedFiles\qrc_%(Filename).cpp</Command>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Shaders\Default.fx" />
+    <None Include="Assets\Shaders\FontShader.fx" />
+    <None Include="Assets\Shaders\LineShader.fx" />
+    <None Include="Assets\Shaders\SpriteShader.fx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

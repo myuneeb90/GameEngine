@@ -5,6 +5,7 @@ class EntityPool
 {
 	public:
 			EList<Entity> *EntityList;
+			int Count;
 	public:
 			EntityPool();
 			virtual ~EntityPool();

@@ -11,8 +11,3 @@ MaterialFilter::~MaterialFilter()
 {
 	SAFE_DELETE(ShaderData);
 }
-
-Shader* MaterialFilter::GetShader()
-{
-	return ShaderData;
-}

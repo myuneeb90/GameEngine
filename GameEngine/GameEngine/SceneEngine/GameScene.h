@@ -5,6 +5,7 @@ class GameScene : public BaseScene
 {
 	private:
 			EntityPool *Pool;
+			TransformSystem *Transformer;
 			RenderSystem *Renderer;
 
 	public:

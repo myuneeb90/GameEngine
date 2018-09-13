@@ -7,9 +7,9 @@ class BaseSystem
 			BaseSystem();
 			virtual ~BaseSystem();
 
-			virtual void Initialize() {}
-			virtual void Execute() {}
-			virtual void Destroy() {}
+			//virtual void Initialize(EntityPool *pool) {}
+			//virtual void Execute() {}
+			//virtual void Destroy() {}
 };
 
 #endif

@@ -34,6 +34,8 @@ void MeshFilter::Construct(Mesh *meshData)
 
 	Stride = sizeof(VertexFormat);
 
+//	cout<<"Construct => Mesh Data Vertex Count : "<<meshData->VertexCount<<endl;
+
 	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	vertexBufferDesc.ByteWidth = sizeof(VertexFormat) * meshData->VertexCount;
 	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
@@ -41,7 +43,7 @@ void MeshFilter::Construct(Mesh *meshData)
 	vertexBufferDesc.MiscFlags = 0;
 	vertexBufferDesc.StructureByteStride = 0;
 
-	vertexResourceData.pSysMem = meshData->VertexBuffer;
+	vertexResourceData.pSysMem = meshData->VertexData;
 	vertexResourceData.SysMemPitch = 0;
 	vertexResourceData.SysMemSlicePitch = 0;
 
@@ -62,7 +64,7 @@ void MeshFilter::Construct(Mesh *meshData)
 	indexBufferDesc.MiscFlags = 0;
 	indexBufferDesc.StructureByteStride = 0;
 
-	indexResourceData.pSysMem = meshData->IndexBuffer;
+	indexResourceData.pSysMem = meshData->IndexData;
 	indexResourceData.SysMemPitch = 0;
 	indexResourceData.SysMemSlicePitch = 0;
 

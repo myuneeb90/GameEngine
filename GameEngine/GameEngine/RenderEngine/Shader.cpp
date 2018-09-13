@@ -189,6 +189,7 @@ void Shader::BuildShader(WCHAR *fileName)
 	}
 
 	compiledShader->Release();
+	cout<<"Shader Technique Name : "<<TechniqueName.c_str()<<endl;
 	EffectTechnique = EffectPtr->GetTechniqueByName(TechniqueName.c_str());
 }
 

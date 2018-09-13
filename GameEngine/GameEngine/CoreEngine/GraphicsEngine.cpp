@@ -27,6 +27,9 @@ void GraphicsEngine::BeginRender(float r, float g, float b, float a)
 {
 	float color[4];
 	color[0] = r; color[1] = g; color[2] = b; color[3] = a;
+
+	DeviceContext->OMSetRenderTargets(1, &this->RenderTargetView, NULL);
+	DeviceContext->RSSetViewports(1, &this->ViewPort);
 	// Clear the back buffer.
 	DeviceContext->ClearRenderTargetView(RenderTargetView, color);
 	// Clear the depth buffer.
@@ -155,10 +158,10 @@ void GraphicsEngine::GetDeviceInfo(int screenWidth, int screenHeight)
 	factory = 0;
 }
 
-void GraphicsEngine::CreateDevice(int screenWidth, int screenHeight, bool vsync, HWND hWnd, WindowModeType winMode)
+void GraphicsEngine::CreateDevice(int screenWidth, int screenHeight, bool vsync, HWND wId, WindowModeType winMode)
 {
 	HRESULT result;
-	DXGI_SWAP_CHAIN_DESC swapChainDesc;
+//	DXGI_SWAP_CHAIN_DESC swapChainDesc;
 	D3D_FEATURE_LEVEL featureLevel;
 	ID3D11Texture2D *backBufferPtr;
 
@@ -167,17 +170,17 @@ void GraphicsEngine::CreateDevice(int screenWidth, int screenHeight, bool vsync,
 	// Now that we have the refresh rate from the system we can start the directx initialization.
 	
 	// Initialize the swap chain description
-	ZeroMemory(&swapChainDesc, sizeof(DXGI_SWAP_CHAIN_DESC));
+	ZeroMemory(&SwapChainDesc, sizeof(DXGI_SWAP_CHAIN_DESC));
 
 	// Set to a single back buffer.
-	swapChainDesc.BufferCount = 1;
+	SwapChainDesc.BufferCount = 1;
 
 	// Set the width and height of the back buffer.
-	swapChainDesc.BufferDesc.Width = screenWidth;
-	swapChainDesc.BufferDesc.Height = screenHeight;
+	SwapChainDesc.BufferDesc.Width = screenWidth;
+	SwapChainDesc.BufferDesc.Height = screenHeight;
 
 	// Set regular 32 bit surface for the back buffer.
-	swapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+	SwapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 
 	// Next part of swap chain description is the refresh rate. If vsync is set to true then this will lock
 	// the refresh rate to system settings for e.g 60 hz. If vsync is set to false then it will draw the
@@ -186,43 +189,43 @@ void GraphicsEngine::CreateDevice(int screenWidth, int screenHeight, bool vsync,
 	// Set the refresh rate of the back buffer
 	if(this->VSyncEnabled)
 	{
-		swapChainDesc.BufferDesc.RefreshRate.Numerator = Numerator;
-		swapChainDesc.BufferDesc.RefreshRate.Denominator = Denominator;
+		SwapChainDesc.BufferDesc.RefreshRate.Numerator = Numerator;
+		SwapChainDesc.BufferDesc.RefreshRate.Denominator = Denominator;
 	}
 	else
 	{
-		swapChainDesc.BufferDesc.RefreshRate.Numerator = 0;
-		swapChainDesc.BufferDesc.RefreshRate.Denominator = 1;
+		SwapChainDesc.BufferDesc.RefreshRate.Numerator = 0;
+		SwapChainDesc.BufferDesc.RefreshRate.Denominator = 1;
 	}
 
 	// Set the usage of the back buffer.
-	swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
+	SwapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
 
 	// Set the handle for the window to render to
-	swapChainDesc.OutputWindow = hWnd;
+	SwapChainDesc.OutputWindow = wId;
 
 	// Turn multisampling off.
-	swapChainDesc.SampleDesc.Count = 4;
-	swapChainDesc.SampleDesc.Quality = 0;
+	SwapChainDesc.SampleDesc.Count = 4;
+	SwapChainDesc.SampleDesc.Quality = 0;
 
 	if(winMode == WMT_FULLSCREEN)
 	{
-		swapChainDesc.Windowed = false;
+		SwapChainDesc.Windowed = false;
 	}
 	else
 	{
-		swapChainDesc.Windowed = true;
+		SwapChainDesc.Windowed = true;
 	}
 
 	// Set the scan line ordering and scaling to unspecified.
-	swapChainDesc.BufferDesc.ScanlineOrdering = DXGI_MODE_SCANLINE_ORDER_UNSPECIFIED;
-	swapChainDesc.BufferDesc.Scaling = DXGI_MODE_SCALING_UNSPECIFIED;
+	SwapChainDesc.BufferDesc.ScanlineOrdering = DXGI_MODE_SCANLINE_ORDER_UNSPECIFIED;
+	SwapChainDesc.BufferDesc.Scaling = DXGI_MODE_SCALING_UNSPECIFIED;
 
 	// Discard the back buffer contents after presenting.
-	swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
+	SwapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
 
 	// Dont set the advanced flags.
-	swapChainDesc.Flags = 0;
+	SwapChainDesc.Flags = 0;
 
 	// Set the feature level to directx 11
 	featureLevel = D3D_FEATURE_LEVEL_11_0;
@@ -231,7 +234,7 @@ void GraphicsEngine::CreateDevice(int screenWidth, int screenHeight, bool vsync,
 
 	// Create the swap chain, Direct3D device and Direct3D device context.
 	result = D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, 0, &featureLevel,
-										   1, D3D11_SDK_VERSION, &swapChainDesc, &SwapChain, &Device,
+										   1, D3D11_SDK_VERSION, &SwapChainDesc, &SwapChain, &Device,
 										   NULL, &DeviceContext);	
 	if(FAILED(result))
 	{
@@ -280,8 +283,8 @@ void GraphicsEngine::CreateBuffers(int screenWidth, int screenHeight)
 	depthBufferDesc.MipLevels = 1;
 	depthBufferDesc.ArraySize = 1;
 	depthBufferDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
-	depthBufferDesc.SampleDesc.Count = 4;
-	depthBufferDesc.SampleDesc.Quality = 1;
+	depthBufferDesc.SampleDesc.Count = 1;
+	depthBufferDesc.SampleDesc.Quality = 0;
 	depthBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	depthBufferDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL;
 	depthBufferDesc.CPUAccessFlags = 0;
@@ -359,7 +362,7 @@ void GraphicsEngine::CreateBuffers(int screenWidth, int screenHeight)
 	RasterDescription.DepthBias = 0;
 	RasterDescription.DepthBiasClamp = 0.0f;
 	RasterDescription.DepthClipEnable = true;
-	RasterDescription.FillMode = D3D11_FILL_SOLID;
+	RasterDescription.FillMode = D3D11_FILL_WIREFRAME;
 	RasterDescription.FrontCounterClockwise = false;
 	RasterDescription.MultisampleEnable = true;
 	RasterDescription.ScissorEnable = false;
@@ -472,5 +475,18 @@ void GraphicsEngine::Release()
 	{
 		SwapChain->Release();
 		SwapChain = 0;
+	}
+}
+
+void GraphicsEngine::ReleaseBuffers()
+{
+	if(this->RenderTargetView)
+	{
+		this->RenderTargetView->Release();
+	}
+
+	if(this->BackBufferPtr)
+	{
+		this->BackBufferPtr->Release();
 	}
 }

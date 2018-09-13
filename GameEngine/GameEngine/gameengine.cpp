@@ -8,8 +8,12 @@ GameEngine::GameEngine(QWidget *parent)
 	Window = new WindowEngine();
 	GlobalRefs::Window = Window;
 
+	cout<<"Main Window Id : "<<this->winId()<<endl;
+
 	D3DWidget *widget = new D3DWidget(this);
 	setCentralWidget(widget);
+
+	
 
 	//QStatusBar *statusBar = GameEngine::findChild<QStatusBar*>("statusBar");
 	Window->StatusBar = GameEngine::findChild<QStatusBar*>("statusBar");

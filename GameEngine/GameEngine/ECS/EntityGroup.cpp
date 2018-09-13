@@ -9,7 +9,6 @@ EntityGroup::EntityGroup()
 EntityGroup::~EntityGroup()
 {
 	EntityList = NULL;
-	//SAFE_DELETE(EntityList);
 }
 
 void EntityGroup::AddEntity(Entity *entity)
