@@ -19,12 +19,12 @@ void TransformSystem::Initialize(EntityPool *pool)
 
 	for(int i = 0; i < pool->EntityList->Count; i++)
 	{
-		for(int j = 0; j < pool->EntityList->GetNodeData(i)->ComponentList->Count; j++)
+		for(int j = 0; j < pool->EntityList->Get(i)->ComponentList->Count; j++)
 		{
-			if(pool->EntityList->GetNodeData(i)->ComponentList->GetNodeData(j)->Type == CIT_TRANSFORM)
+			if(pool->EntityList->Get(i)->ComponentList->Get(j)->Type == CIT_TRANSFORM)
 			{
-				Group->AddEntity(pool->EntityList->GetNodeData(i));
-				TransformList->Add((TransformComponent*)pool->EntityList->GetNodeData(i)->ComponentList->GetNodeData(j));
+				Group->AddEntity(pool->EntityList->Get(i));
+				TransformList->Add((TransformComponent*)pool->EntityList->Get(i)->ComponentList->Get(j));
 				break;
 			}
 		}
@@ -37,7 +37,7 @@ void TransformSystem::Execute()
 {
 	for(int i = 0; i < TransformList->Count; i++)
 	{
-		TransformList->GetNodeData(i)->WorldMatrix = ConstructWorldMatrix(TransformList->GetNodeData(i));					
+		TransformList->Get(i)->WorldMatrix = ConstructWorldMatrix(TransformList->Get(i));					
 	}
 }
 

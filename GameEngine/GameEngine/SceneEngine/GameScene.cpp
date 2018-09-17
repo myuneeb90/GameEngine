@@ -5,16 +5,17 @@ GameScene::GameScene()
 	Pool = NULL;
 	Renderer = NULL;
 	Transformer = NULL;
+	Manager = NULL;
 }
 
 GameScene::~GameScene()
 {
-
+	
 }
 
 void GameScene::Awake()
 {
-	Material *mat = new Material;
+/*	Material *mat = new Material;
 	mat->DiffuseColor = Color(1.0f, 0.5f, 0.5f, 1.0f);
 
 	Entity *testEntity = new Entity();
@@ -36,6 +37,44 @@ void GameScene::Awake()
 
 	Renderer = new RenderSystem();
 	Renderer->Initialize(Pool);
+	*/
+	Manager = new ECSManager();
+	
+
+
+	IEntity *e1 = new IEntity(); // T R
+	IEntity *e2 = new IEntity(); // T R
+	IEntity *e3 = new IEntity(); // T 
+	IEntity *e4 = new IEntity(); // T 
+
+	Manager->AddEntity(e1);
+	Manager->AddEntity(e2);
+	Manager->AddEntity(e3);
+	Manager->AddEntity(e4);
+
+	Manager->AddComponent(e1, new ITransformComponent());
+	Manager->AddComponent(e1, new IRenderComponent());
+
+	Manager->AddComponent(e2, new ITransformComponent());
+	Manager->AddComponent(e2, new IRenderComponent());
+
+	Manager->AddComponent(e3, new ITransformComponent());
+	Manager->AddComponent(e4, new ITransformComponent());
+
+	Manager->AddSystem(new ITransformSystem());
+	Manager->AddSystem(new IRenderSystem());
+
+	//a = new EList<int>();
+
+	//a->Add((int*)10);
+	//a->Add((int*)20);
+
+	//for(int i = 0; i < a->Count; i++)
+	//{
+	//	cout<<"Int List Item Value : "<<a->Get(i)<<endl;
+	//}
+
+	//SAFE_DELETE(a);
 }
 
 void GameScene::Start()
@@ -45,19 +84,40 @@ void GameScene::Start()
 
 void GameScene::Update()
 {
-	Transformer->Execute();
+	Manager->Update();
 
+	//Transformer->Execute();
+	//
+
+	GlobalRefs::Graphics->BeginRender(0.5f, 0.5f, 0.5f, 1.0f);
+	//Renderer->Execute();
+	GlobalRefs::Graphics->EndRender();
+	
+//	Manager->UpdateSystems();
 }
 
-void GameScene::Render()
-{
-	Renderer->Execute();
-}
+//void GameScene::Render()
+//{
+//	
+//}
 
 void GameScene::Destroy()
 {
-	SAFE_DELETE(Pool);
-	SAFE_DELETE(Transformer);
-	SAFE_DELETE(Renderer);
+	cout<<"-------------------"<<endl;
+	SAFE_DELETE(Manager);
+	cout<<"-------------------"<<endl;
+	//SAFE_DELETE(Pool);
+	//SAFE_DELETE(Transformer);
+	//SAFE_DELETE(Renderer);
 	GlobalRefs::Debug->Log("Destroying Scene");
+}
+
+void GameScene::Resize(int width, int height)
+{
+	GlobalRefs::Graphics->ReleaseBuffers();
+	// Release Shaders & buffer objects.
+	GlobalRefs::Graphics->SwapChain->ResizeBuffers(1, width, height, GlobalRefs::Graphics->SwapChainDesc.BufferDesc.Format, 0);
+	GlobalRefs::Graphics->SwapChain->GetDesc(&GlobalRefs::Graphics->SwapChainDesc);
+	GlobalRefs::Graphics->CreateBuffers(width, height);
+	// Recreate Shaders & buffer objects.
 }

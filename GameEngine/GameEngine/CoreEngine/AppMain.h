@@ -38,6 +38,10 @@
 #include <typeinfo>
 #include <stdint.h>
 #include <utility>
+#include <vector>
+#include <map>
+#include <list>
+#include <iterator>
 #include <boost/any.hpp>
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
@@ -131,6 +135,7 @@ enum CullModeType
 #include "ECS/BaseSystem.h"
 #include "ECS/TransformSystem.h"
 #include "ECS/RenderSystem.h"
+#include "ECS/ECSManager.h"
 
 // Scene Engine
 #include "SceneEngine/GameScene.h"

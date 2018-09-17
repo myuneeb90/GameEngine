@@ -55,33 +55,33 @@ class EList
 				Count = 0;
 			}
 
-			ENode<T>* GetNode(int index)
-			{
-				ENode<T> *iter = HeadPtr;
-				int i = 0;
+			//ENode<T>* GetNode(int index)
+			//{
+			//	ENode<T> *iter = HeadPtr;
+			//	int i = 0;
 
-				while(iter != NULL)
-				{
-					if(index < 0 || index >= Count)
-					{
-						cout<<"Wrong Index"<<endl;
-						break;
-					}
+			//	while(iter != NULL)
+			//	{
+			//		if(index < 0 || index >= Count)
+			//		{
+			//			cout<<"Wrong Index"<<endl;
+			//			break;
+			//		}
 
-					if(i == index)
-					{
-						return iter;
-					}
+			//		if(i == index)
+			//		{
+			//			return iter;
+			//		}
 
-					iter = iter->NextPtr;
-					i++;
-				}
+			//		iter = iter->NextPtr;
+			//		i++;
+			//	}
 
-				cout<<"The node does not exist"<<endl;
-				return NULL;
-			}
+			//	cout<<"The node does not exist"<<endl;
+			//	return NULL;
+			//}
 
-			T* GetNodeData(int index)
+			T* Get(int index)
 			{
 				ENode<T> *iter = HeadPtr;
 				int i = 0;
@@ -151,70 +151,70 @@ class EList
 				Count++;
 			}
 
-			void AddReference(ENode<T> *item)
-			{
-				ENode<T> *newItem = item;
+			//void AddReference(ENode<T> *item)
+			//{
+			//	ENode<T> *newItem = item;
 
-				if(HeadPtr == NULL)
-				{
-					HeadPtr = newItem;
-				}
-				else
-				{
-					ENode<T> *iter = HeadPtr;
+			//	if(HeadPtr == NULL)
+			//	{
+			//		HeadPtr = newItem;
+			//	}
+			//	else
+			//	{
+			//		ENode<T> *iter = HeadPtr;
 
-					while(iter->NextPtr != NULL)
-					{
-						iter = iter->NextPtr;
-					}
+			//		while(iter->NextPtr != NULL)
+			//		{
+			//			iter = iter->NextPtr;
+			//		}
 
-					iter->NextPtr = newItem;
-					newItem->PrevPtr = iter;
-				}
+			//		iter->NextPtr = newItem;
+			//		newItem->PrevPtr = iter;
+			//	}
 
-				newItem->Id = Count;
-				Count++;
-			}
+			//	newItem->Id = Count;
+			//	Count++;
+			//}
 
-			void Remove(ENode<T> *item)
-			{
-				if(item == NULL)
-				{
-					return;
-				}
+			//void Remove(ENode<T> *item)
+			//{
+			//	if(item == NULL)
+			//	{
+			//		return;
+			//	}
 
-				ENode<T> *nextPtr = NULL;
-				ENode<T> *prevPtr = NULL;
+			//	ENode<T> *nextPtr = NULL;
+			//	ENode<T> *prevPtr = NULL;
 
-				if(item->NextPtr != NULL)
-				{
-					nextPtr = item->NextPtr;
-				}
+			//	if(item->NextPtr != NULL)
+			//	{
+			//		nextPtr = item->NextPtr;
+			//	}
 
-				if(item->PrevPtr != NULL)
-				{
-					prevPtr = item->PrevPtr;
-				}
+			//	if(item->PrevPtr != NULL)
+			//	{
+			//		prevPtr = item->PrevPtr;
+			//	}
 
-				if(nextPtr != NULL && prevPtr != NULL)
-				{
-					nextPtr->PrevPtr = prevPtr;
-					prevPtr->NextPtr = nextPtr;
-				}
-				else
-				if(nextPtr == NULL && prevPtr != NULL)
-				{
-					prevPtr->NextPtr = NULL;
-				}
-				else
-				if(nextPtr != NULL && prevPtr == NULL)
-				{
-					nextPtr->PrevPtr = NULL;
-				}
+			//	if(nextPtr != NULL && prevPtr != NULL)
+			//	{
+			//		nextPtr->PrevPtr = prevPtr;
+			//		prevPtr->NextPtr = nextPtr;
+			//	}
+			//	else
+			//	if(nextPtr == NULL && prevPtr != NULL)
+			//	{
+			//		prevPtr->NextPtr = NULL;
+			//	}
+			//	else
+			//	if(nextPtr != NULL && prevPtr == NULL)
+			//	{
+			//		nextPtr->PrevPtr = NULL;
+			//	}
 
-				SAFE_DELETE(item);
-				Count--;
-			}
+			//	SAFE_DELETE(item);
+			//	Count--;
+			//}
 
 			void Remove(T *itemData)
 			{
@@ -276,48 +276,48 @@ class EList
 				Count--;
 			}
 
-			void RemoveReference(ENode<T> *item)
-			{
-				if(item == NULL)
-				{
-					return;
-				}
+			//void RemoveReference(ENode<T> *item)
+			//{
+			//	if(item == NULL)
+			//	{
+			//		return;
+			//	}
 
-				ENode<T> *nextPtr = NULL;
-				ENode<T> *prevPtr = NULL;
+			//	ENode<T> *nextPtr = NULL;
+			//	ENode<T> *prevPtr = NULL;
 
-				if(item->NextPtr != NULL)
-				{
-					nextPtr = item->NextPtr;
-				}
+			//	if(item->NextPtr != NULL)
+			//	{
+			//		nextPtr = item->NextPtr;
+			//	}
 
-				if(item->PrevPtr != NULL)
-				{
-					prevPtr = item->PrevPtr;
-				}
+			//	if(item->PrevPtr != NULL)
+			//	{
+			//		prevPtr = item->PrevPtr;
+			//	}
 
-				if(nextPtr != NULL && prevPtr != NULL)
-				{
-					nextPtr->PrevPtr = prevPtr;
-					prevPtr->NextPtr = nextPtr;
-				}
-				else
-				if(nextPtr == NULL && prevPtr != NULL)
-				{
-					prevPtr->NextPtr = NULL;
-				}
-				else
-				if(nextPtr != NULL && prevPtr == NULL)
-				{
-					nextPtr->PrevPtr = NULL;
-				}
+			//	if(nextPtr != NULL && prevPtr != NULL)
+			//	{
+			//		nextPtr->PrevPtr = prevPtr;
+			//		prevPtr->NextPtr = nextPtr;
+			//	}
+			//	else
+			//	if(nextPtr == NULL && prevPtr != NULL)
+			//	{
+			//		prevPtr->NextPtr = NULL;
+			//	}
+			//	else
+			//	if(nextPtr != NULL && prevPtr == NULL)
+			//	{
+			//		nextPtr->PrevPtr = NULL;
+			//	}
 
-				item->NextPtr = NULL;
-				item->PrevPtr = NULL;
+			//	item->NextPtr = NULL;
+			//	item->PrevPtr = NULL;
 
-				cout<<"Removing reference"<<endl;
-				Count--;
-			}
+			//	cout<<"Removing reference"<<endl;
+			//	Count--;
+			//}
 
 			void Clear() 
 			{

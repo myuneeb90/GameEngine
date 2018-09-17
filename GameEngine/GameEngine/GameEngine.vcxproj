@@ -85,6 +85,7 @@
     <ClCompile Include="CoreEngine\WindowEngine.cpp" />
     <ClCompile Include="ECS\BaseComponent.cpp" />
     <ClCompile Include="ECS\BaseSystem.cpp" />
+    <ClCompile Include="ECS\ECSManager.cpp" />
     <ClCompile Include="ECS\Entity.cpp" />
     <ClCompile Include="ECS\EntityGroup.cpp" />
     <ClCompile Include="ECS\EntityPool.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="CoreEngine\WindowEngine.h" />
     <ClInclude Include="ECS\BaseComponent.h" />
     <ClInclude Include="ECS\BaseSystem.h" />
+    <ClInclude Include="ECS\ECSManager.h" />
     <ClInclude Include="ECS\Entity.h" />
     <ClInclude Include="ECS\EntityGroup.h" />
     <ClInclude Include="ECS\EntityPool.h" />

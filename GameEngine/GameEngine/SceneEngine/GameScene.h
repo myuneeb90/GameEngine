@@ -7,7 +7,8 @@ class GameScene : public BaseScene
 			EntityPool *Pool;
 			TransformSystem *Transformer;
 			RenderSystem *Renderer;
-
+			ECSManager *Manager;
+		//	EList<int> *a;
 	public:
 			GameScene();
 			virtual ~GameScene();
@@ -15,8 +16,9 @@ class GameScene : public BaseScene
 		    void Awake(); 
 		    void Start(); 
 		    void Update(); 
-			void Render();
+		//	void Render();
 		    void Destroy(); 
+			void Resize(int width, int height);
 };
 
 #endif

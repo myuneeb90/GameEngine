@@ -1,22 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;cxx;c;def</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h</Extensions>
-    </Filter>
     <Filter Include="Form Files">
       <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
       <Extensions>ui</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
-      <Extensions>qrc;*</Extensions>
-      <ParseFiles>false</ParseFiles>
     </Filter>
     <Filter Include="Generated Files">
       <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
@@ -33,42 +20,6 @@
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
-    <Filter Include="Header Files\CoreEngine">
-      <UniqueIdentifier>{1e103253-8259-468a-afb6-0ea91a358297}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\CoreEngine">
-      <UniqueIdentifier>{de9371d3-d211-4591-bdc1-adefdfcb1361}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\MathEngine">
-      <UniqueIdentifier>{3df7a8e9-bbf7-40a5-a3a1-5220430667bd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\MathEngine">
-      <UniqueIdentifier>{f05a69b5-18f2-4fdb-85c1-e27357b3735e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\ECS">
-      <UniqueIdentifier>{248ee6d0-e08f-4417-982a-f6607fbde4a3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\ECS">
-      <UniqueIdentifier>{1c05a1fe-74b6-4c03-9e76-fbfb46a6df2d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Common">
-      <UniqueIdentifier>{587a7ae7-e1ff-47f6-9118-4876cd62f733}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Common">
-      <UniqueIdentifier>{a6070b0b-18fc-4aca-bd98-6499e15a227d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\RenderEngine">
-      <UniqueIdentifier>{9a83a20d-57c9-42fa-8754-07045423ffb1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\RenderEngine">
-      <UniqueIdentifier>{191cf2b1-998a-4279-9186-3f799b45305c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\SceneEngine">
-      <UniqueIdentifier>{817547d8-a1ed-4eb1-97fc-936098c3e910}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\SceneEngine">
-      <UniqueIdentifier>{16d14c63-8a6e-4f2d-8366-c02be27a4bf6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Assets">
       <UniqueIdentifier>{f5a7378b-688e-4295-b1b0-004613789a38}</UniqueIdentifier>
     </Filter>
@@ -81,19 +32,78 @@
     <Filter Include="Assets\Shaders">
       <UniqueIdentifier>{1781d894-7fd4-44b0-91a0-bcabe30f6fd3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{587a7ae7-e1ff-47f6-9118-4876cd62f733}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderEngine">
+      <UniqueIdentifier>{9a83a20d-57c9-42fa-8754-07045423ffb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreEngine">
+      <UniqueIdentifier>{1e103253-8259-468a-afb6-0ea91a358297}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS">
+      <UniqueIdentifier>{248ee6d0-e08f-4417-982a-f6607fbde4a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MathEngine">
+      <UniqueIdentifier>{3df7a8e9-bbf7-40a5-a3a1-5220430667bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SceneEngine">
+      <UniqueIdentifier>{817547d8-a1ed-4eb1-97fc-936098c3e910}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Header Files">
+      <UniqueIdentifier>{5ed80d83-d80f-416d-bf59-6d547e034d53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Source Files">
+      <UniqueIdentifier>{2c451de2-30b8-4351-9d43-60fb2c3c159b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreEngine\Header Files">
+      <UniqueIdentifier>{6f7bb8bb-1e9d-4c58-a6f2-b4b8a7522ac0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CoreEngine\Source Files">
+      <UniqueIdentifier>{47ba968a-4e0a-4115-8831-705906e5b0b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Header Files">
+      <UniqueIdentifier>{3ab0cb66-e174-41e3-8cf9-d90294eaf732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Source Files">
+      <UniqueIdentifier>{5699c769-e574-4e20-85d9-9def70829521}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MathEngine\Header Files">
+      <UniqueIdentifier>{a5a04b09-aa54-4b09-817c-a560d1c387f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MathEngine\Source Files">
+      <UniqueIdentifier>{9132684a-33b9-4348-a821-cf189743b7d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderEngine\Header Files">
+      <UniqueIdentifier>{7bb21bdb-2b20-4235-8511-af5debc32090}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderEngine\Source Files">
+      <UniqueIdentifier>{9c2ab772-468c-4ce7-a01c-dd280445cf48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SceneEngine\Header Files">
+      <UniqueIdentifier>{ff48d553-6843-4870-9027-e59ec3527647}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SceneEngine\Source Files">
+      <UniqueIdentifier>{eb6c22e4-4cd2-4258-bcf6-ddd015a24434}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{27311a9c-3bd5-4b0e-9599-a05c2239cf3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Header Files">
+      <UniqueIdentifier>{ac914e8b-549d-4140-ade1-53e524ac667f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Source Files">
+      <UniqueIdentifier>{58eb5a1d-874f-4c87-bbc6-81d02536a67e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gameengine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\qrc_gameengine.cpp">
       <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CoreEngine\AppMain.cpp">
-      <Filter>Source Files\CoreEngine</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_gameengine.cpp">
       <Filter>Generated Files\Debug</Filter>
@@ -101,128 +111,140 @@
     <ClCompile Include="GeneratedFiles\Release\moc_gameengine.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="CoreEngine\GraphicsEngine.cpp">
-      <Filter>Source Files\CoreEngine</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_D3DWidget.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_D3DWidget.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="CoreEngine\D3DWidget.cpp">
-      <Filter>Source Files\CoreEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="MathEngine\Mathd.cpp">
-      <Filter>Source Files\MathEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="MathEngine\Mathf.cpp">
-      <Filter>Source Files\MathEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="MathEngine\Matrix4x4d.cpp">
-      <Filter>Source Files\MathEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="MathEngine\Matrix4x4f.cpp">
-      <Filter>Source Files\MathEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="MathEngine\Plane.cpp">
-      <Filter>Source Files\MathEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="MathEngine\Quaternion.cpp">
-      <Filter>Source Files\MathEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="MathEngine\Vector2d.cpp">
-      <Filter>Source Files\MathEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="MathEngine\Vector2f.cpp">
-      <Filter>Source Files\MathEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="MathEngine\Vector3d.cpp">
-      <Filter>Source Files\MathEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="MathEngine\Vector3f.cpp">
-      <Filter>Source Files\MathEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="MathEngine\Vector4d.cpp">
-      <Filter>Source Files\MathEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="MathEngine\Vector4f.cpp">
-      <Filter>Source Files\MathEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="ECS\BaseComponent.cpp">
-      <Filter>Source Files\ECS</Filter>
-    </ClCompile>
-    <ClCompile Include="ECS\Entity.cpp">
-      <Filter>Source Files\ECS</Filter>
-    </ClCompile>
     <ClCompile Include="Common\EList.cpp">
-      <Filter>Source Files\Common</Filter>
+      <Filter>Common\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ECS\EntityPool.cpp">
-      <Filter>Source Files\ECS</Filter>
-    </ClCompile>
-    <ClCompile Include="ECS\EntityGroup.cpp">
-      <Filter>Source Files\ECS</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderEngine\Color.cpp">
-      <Filter>Source Files\RenderEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderEngine\Mesh.cpp">
-      <Filter>Source Files\RenderEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderEngine\Material.cpp">
-      <Filter>Source Files\RenderEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="ECS\BaseSystem.cpp">
-      <Filter>Source Files\ECS</Filter>
-    </ClCompile>
-    <ClCompile Include="ECS\RenderSystem.cpp">
-      <Filter>Source Files\ECS</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderEngine\Shader.cpp">
-      <Filter>Source Files\RenderEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="CoreEngine\GlobalRefs.cpp">
-      <Filter>Source Files\CoreEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="CoreEngine\DebugEngine.cpp">
-      <Filter>Source Files\CoreEngine</Filter>
+    <ClCompile Include="CoreEngine\AppMain.cpp">
+      <Filter>CoreEngine\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CoreEngine\WindowEngine.cpp">
-      <Filter>Source Files\CoreEngine</Filter>
+      <Filter>CoreEngine\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RenderEngine\MeshFilter.cpp">
-      <Filter>Source Files\RenderEngine</Filter>
+    <ClCompile Include="CoreEngine\D3DWidget.cpp">
+      <Filter>CoreEngine\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RenderEngine\MaterialFilter.cpp">
-      <Filter>Source Files\RenderEngine</Filter>
+    <ClCompile Include="CoreEngine\DebugEngine.cpp">
+      <Filter>CoreEngine\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SceneEngine\BaseScene.cpp">
-      <Filter>Source Files\SceneEngine</Filter>
+    <ClCompile Include="CoreEngine\GlobalRefs.cpp">
+      <Filter>CoreEngine\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SceneEngine\GameScene.cpp">
-      <Filter>Source Files\SceneEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderEngine\MeshShapes.cpp">
-      <Filter>Source Files\RenderEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderEngine\LineShapes.cpp">
-      <Filter>Source Files\RenderEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderEngine\Texture2D.cpp">
-      <Filter>Source Files\RenderEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderEngine\ShadersLib.cpp">
-      <Filter>Source Files\RenderEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="ECS\TransformSystem.cpp">
-      <Filter>Source Files\ECS</Filter>
+    <ClCompile Include="CoreEngine\GraphicsEngine.cpp">
+      <Filter>CoreEngine\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CoreEngine\InputEngine.cpp">
-      <Filter>Source Files\CoreEngine</Filter>
+      <Filter>CoreEngine\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CoreEngine\TimeEngine.cpp">
-      <Filter>Source Files\CoreEngine</Filter>
+      <Filter>CoreEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ECS\BaseComponent.cpp">
+      <Filter>ECS\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ECS\TransformSystem.cpp">
+      <Filter>ECS\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ECS\BaseSystem.cpp">
+      <Filter>ECS\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ECS\Entity.cpp">
+      <Filter>ECS\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ECS\EntityGroup.cpp">
+      <Filter>ECS\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ECS\EntityPool.cpp">
+      <Filter>ECS\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ECS\RenderSystem.cpp">
+      <Filter>ECS\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Mathd.cpp">
+      <Filter>MathEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Vector4f.cpp">
+      <Filter>MathEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Mathf.cpp">
+      <Filter>MathEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Matrix4x4d.cpp">
+      <Filter>MathEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Matrix4x4f.cpp">
+      <Filter>MathEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Plane.cpp">
+      <Filter>MathEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Quaternion.cpp">
+      <Filter>MathEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Vector2d.cpp">
+      <Filter>MathEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Vector2f.cpp">
+      <Filter>MathEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Vector3d.cpp">
+      <Filter>MathEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Vector3f.cpp">
+      <Filter>MathEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MathEngine\Vector4d.cpp">
+      <Filter>MathEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine\Color.cpp">
+      <Filter>RenderEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine\Texture2D.cpp">
+      <Filter>RenderEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine\LineShapes.cpp">
+      <Filter>RenderEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine\Material.cpp">
+      <Filter>RenderEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine\MaterialFilter.cpp">
+      <Filter>RenderEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine\Mesh.cpp">
+      <Filter>RenderEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine\MeshFilter.cpp">
+      <Filter>RenderEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine\MeshShapes.cpp">
+      <Filter>RenderEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine\Shader.cpp">
+      <Filter>RenderEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine\ShadersLib.cpp">
+      <Filter>RenderEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneEngine\BaseScene.cpp">
+      <Filter>SceneEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneEngine\GameScene.cpp">
+      <Filter>SceneEngine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gameengine.cpp">
+      <Filter>Main\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Main\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ECS\ECSManager.cpp">
+      <Filter>ECS\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -230,135 +252,138 @@
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="gameengine.qrc">
-      <Filter>Resource Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="gameengine.h">
-      <Filter>Header Files</Filter>
+      <Filter>Main\Resource Files</Filter>
     </CustomBuild>
     <CustomBuild Include="CoreEngine\D3DWidget.h">
-      <Filter>Header Files\CoreEngine</Filter>
+      <Filter>CoreEngine\Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="gameengine.h">
+      <Filter>Main\Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_gameengine.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="CoreEngine\AppMain.h">
-      <Filter>Header Files\CoreEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="CoreEngine\GraphicsEngine.h">
-      <Filter>Header Files\CoreEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="MathEngine\Mathd.h">
-      <Filter>Header Files\MathEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="MathEngine\Mathf.h">
-      <Filter>Header Files\MathEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="MathEngine\Matrix4x4d.h">
-      <Filter>Header Files\MathEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="MathEngine\Matrix4x4f.h">
-      <Filter>Header Files\MathEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="MathEngine\Plane.h">
-      <Filter>Header Files\MathEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="MathEngine\Quaternion.h">
-      <Filter>Header Files\MathEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="MathEngine\Vector2d.h">
-      <Filter>Header Files\MathEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="MathEngine\Vector2f.h">
-      <Filter>Header Files\MathEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="MathEngine\Vector3d.h">
-      <Filter>Header Files\MathEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="MathEngine\Vector3f.h">
-      <Filter>Header Files\MathEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="MathEngine\Vector4d.h">
-      <Filter>Header Files\MathEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="MathEngine\Vector4f.h">
-      <Filter>Header Files\MathEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="ECS\BaseComponent.h">
-      <Filter>Header Files\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="ECS\Entity.h">
-      <Filter>Header Files\ECS</Filter>
-    </ClInclude>
     <ClInclude Include="Common\EList.h">
-      <Filter>Header Files\Common</Filter>
+      <Filter>Common\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ECS\EntityPool.h">
-      <Filter>Header Files\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="ECS\EntityGroup.h">
-      <Filter>Header Files\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderEngine\Color.h">
-      <Filter>Header Files\RenderEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderEngine\Mesh.h">
-      <Filter>Header Files\RenderEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderEngine\Material.h">
-      <Filter>Header Files\RenderEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="ECS\BaseSystem.h">
-      <Filter>Header Files\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="ECS\RenderSystem.h">
-      <Filter>Header Files\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderEngine\Shader.h">
-      <Filter>Header Files\RenderEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="CoreEngine\GlobalRefs.h">
-      <Filter>Header Files\CoreEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="CoreEngine\DebugEngine.h">
-      <Filter>Header Files\CoreEngine</Filter>
+    <ClInclude Include="CoreEngine\AppMain.h">
+      <Filter>CoreEngine\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CoreEngine\WindowEngine.h">
-      <Filter>Header Files\CoreEngine</Filter>
+      <Filter>CoreEngine\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RenderEngine\MeshFilter.h">
-      <Filter>Header Files\RenderEngine</Filter>
+    <ClInclude Include="CoreEngine\DebugEngine.h">
+      <Filter>CoreEngine\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RenderEngine\MaterialFilter.h">
-      <Filter>Header Files\RenderEngine</Filter>
+    <ClInclude Include="CoreEngine\GlobalRefs.h">
+      <Filter>CoreEngine\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SceneEngine\BaseScene.h">
-      <Filter>Header Files\SceneEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneEngine\GameScene.h">
-      <Filter>Header Files\SceneEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderEngine\MeshShapes.h">
-      <Filter>Header Files\RenderEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderEngine\LineShapes.h">
-      <Filter>Header Files\RenderEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderEngine\Texture2D.h">
-      <Filter>Header Files\RenderEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderEngine\ShadersLib.h">
-      <Filter>Header Files\RenderEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="ECS\TransformSystem.h">
-      <Filter>Header Files\ECS</Filter>
+    <ClInclude Include="CoreEngine\GraphicsEngine.h">
+      <Filter>CoreEngine\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CoreEngine\InputEngine.h">
-      <Filter>Header Files\CoreEngine</Filter>
+      <Filter>CoreEngine\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CoreEngine\TimeEngine.h">
-      <Filter>Header Files\CoreEngine</Filter>
+      <Filter>CoreEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\BaseComponent.h">
+      <Filter>ECS\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\TransformSystem.h">
+      <Filter>ECS\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\BaseSystem.h">
+      <Filter>ECS\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\Entity.h">
+      <Filter>ECS\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\EntityGroup.h">
+      <Filter>ECS\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\EntityPool.h">
+      <Filter>ECS\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\RenderSystem.h">
+      <Filter>ECS\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Mathd.h">
+      <Filter>MathEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Vector4f.h">
+      <Filter>MathEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Mathf.h">
+      <Filter>MathEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Matrix4x4d.h">
+      <Filter>MathEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Matrix4x4f.h">
+      <Filter>MathEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Plane.h">
+      <Filter>MathEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Quaternion.h">
+      <Filter>MathEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Vector2d.h">
+      <Filter>MathEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Vector2f.h">
+      <Filter>MathEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Vector3d.h">
+      <Filter>MathEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Vector3f.h">
+      <Filter>MathEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MathEngine\Vector4d.h">
+      <Filter>MathEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\Color.h">
+      <Filter>RenderEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\Texture2D.h">
+      <Filter>RenderEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\LineShapes.h">
+      <Filter>RenderEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\Material.h">
+      <Filter>RenderEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\MaterialFilter.h">
+      <Filter>RenderEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\Mesh.h">
+      <Filter>RenderEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\MeshFilter.h">
+      <Filter>RenderEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\MeshShapes.h">
+      <Filter>RenderEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\Shader.h">
+      <Filter>RenderEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\ShadersLib.h">
+      <Filter>RenderEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneEngine\BaseScene.h">
+      <Filter>SceneEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneEngine\GameScene.h">
+      <Filter>SceneEngine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS\ECSManager.h">
+      <Filter>ECS\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

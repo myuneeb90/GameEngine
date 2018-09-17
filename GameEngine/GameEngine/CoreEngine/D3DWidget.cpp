@@ -60,7 +60,6 @@ D3DWidget::D3DWidget(QWidget *parent) : QWidget(parent)
 
 D3DWidget::~D3DWidget()
 {
-
 	Scene->Destroy();
 	SAFE_DELETE(Scene);
 
@@ -86,12 +85,7 @@ D3DWidget::~D3DWidget()
 
 void D3DWidget::resizeEvent(QResizeEvent *evt)
 {
-	Graphics->ReleaseBuffers();
-	Graphics->SwapChain->ResizeBuffers(1, width(), height(), Graphics->SwapChainDesc.BufferDesc.Format, 0);
-	Graphics->SwapChain->GetDesc(&Graphics->SwapChainDesc);
-	Graphics->CreateBuffers(this->width(), this->height());
-
-	cout<<"Resize Width : "<<this->width()<<" , Height : "<<this->height()<<endl;
+	Scene->Resize(this->width(), this->height());
 }
 
 void D3DWidget::paintEvent(QPaintEvent *evt)
@@ -109,9 +103,9 @@ void D3DWidget::paintEvent(QPaintEvent *evt)
 		Scene->Update();
 	}
 
-	Graphics->BeginRender(0.5f, 0.5f, 0.5f, 1.0f);
-	Scene->Render();
-	Graphics->EndRender();
+	//Graphics->BeginRender(0.5f, 0.5f, 0.5f, 1.0f);
+	//Scene->Render();
+	//Graphics->EndRender();
 }
 
 //void D3DWidget::wheelEvent(QWheelEvent *evt)

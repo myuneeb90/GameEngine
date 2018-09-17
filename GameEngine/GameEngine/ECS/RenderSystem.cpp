@@ -32,11 +32,11 @@ void RenderSystem::Initialize(EntityPool *pool)
 
 	for(int i = 0; i < pool->EntityList->Count; i++)
 	{
-		for(int j = 0; j < pool->EntityList->GetNodeData(i)->ComponentList->Count; j++)
+		for(int j = 0; j < pool->EntityList->Get(i)->ComponentList->Count; j++)
 		{
-			if(pool->EntityList->GetNodeData(i)->ComponentList->GetNodeData(j)->Type == CIT_RENDER)
+			if(pool->EntityList->Get(i)->ComponentList->Get(j)->Type == CIT_RENDER)
 			{
-				Group->AddEntity(pool->EntityList->GetNodeData(i));
+				Group->AddEntity(pool->EntityList->Get(i));
 				break;
 			}
 		}
@@ -47,16 +47,16 @@ void RenderSystem::Initialize(EntityPool *pool)
 
 	for(int i = 0; i < Group->EntityList->Count; i++)
 	{
-		for(int j = 0; j < Group->EntityList->GetNodeData(i)->ComponentList->Count; j++)
+		for(int j = 0; j < Group->EntityList->Get(i)->ComponentList->Count; j++)
 		{
-			if(Group->EntityList->GetNodeData(i)->ComponentList->GetNodeData(j)->Type == CIT_TRANSFORM)
+			if(Group->EntityList->Get(i)->ComponentList->Get(j)->Type == CIT_TRANSFORM)
 			{
-				TransformList->Add((TransformComponent*)Group->EntityList->GetNodeData(i)->ComponentList->GetNodeData(j));
+				TransformList->Add((TransformComponent*)Group->EntityList->Get(i)->ComponentList->Get(j));
 			}
 
-			if(Group->EntityList->GetNodeData(i)->ComponentList->GetNodeData(j)->Type == CIT_RENDER)
+			if(Group->EntityList->Get(i)->ComponentList->Get(j)->Type == CIT_RENDER)
 			{
-				RenderList->Add((RenderComponent*)Group->EntityList->GetNodeData(i)->ComponentList->GetNodeData(j));
+				RenderList->Add((RenderComponent*)Group->EntityList->Get(i)->ComponentList->Get(j));
 			}
 		}
 	}
@@ -68,15 +68,15 @@ void RenderSystem::Initialize(EntityPool *pool)
 	for(int i = 0; i < RenderList->Count; i++)
 	{
 		MeshFilter *meshFilter = new MeshFilter();
-		meshFilter->Construct(RenderList->GetNodeData(i)->MeshData);
+		meshFilter->Construct(RenderList->Get(i)->MeshData);
 		MeshFilterList->Add(meshFilter);
 
-		MaterialFilter *materialFilter = new MaterialFilter(ShadersLib::CreateDefaultShader(RenderList->GetNodeData(i)->MaterialData->DiffuseColor));
+		MaterialFilter *materialFilter = new MaterialFilter(ShadersLib::CreateDefaultShader(RenderList->Get(i)->MaterialData->DiffuseColor));
 		MaterialFilterList->Add(materialFilter);
 	}
 
-	cout<<"W : "<<(float)GlobalRefs::Window->ScreenWidth<<" , H : "<<(float)GlobalRefs::Window->ScreenHeight<<endl;
-	this->ConstructPerspectiveMatrix(45.0f, (float)GlobalRefs::Window->ScreenWidth, (float)GlobalRefs::Window->ScreenHeight, 0.1f, 1000);
+//	cout<<"W : "<<(float)GlobalRefs::Window->ScreenWidth<<" , H : "<<(float)GlobalRefs::Window->ScreenHeight<<endl;
+	this->ConstructPerspectiveMatrix(60.0f, (float)GlobalRefs::Window->ScreenWidth, (float)GlobalRefs::Window->ScreenHeight, 0.1f, 1000);
 
 //	cout<<"Render System Entity Group Count : "<<Group->EntityList->Count<<endl;
 }
@@ -92,8 +92,8 @@ void RenderSystem::Execute()
 
 	for(int i = 0; i < RenderCount; i++)
 	{
-		MeshFilter *meshFilter = MeshFilterList->GetNodeData(i);
-		MaterialFilter *materialFilter = MaterialFilterList->GetNodeData(i);
+		MeshFilter *meshFilter = MeshFilterList->Get(i);
+		MaterialFilter *materialFilter = MaterialFilterList->Get(i);
 
 		Matrix4x4f world;
 		Matrix4x4f wvp;
@@ -265,7 +265,7 @@ void RenderSystem::FPSTestCam()
 	}
 
 	// Mouse Controller
-	if(GlobalRefs::Input->MouseButtonDown(1))
+//	if(GlobalRefs::Input->MouseButtonDown(1))
 	{
 		// Yaw
 		if(GlobalRefs::Input->GetMouseMovementX() != 0)
