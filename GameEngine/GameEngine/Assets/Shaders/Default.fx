@@ -65,7 +65,7 @@ float4 PS(VertexOut pin) : SV_Target
 
 //	finalColor = saturate(finalColor);
 
-    return float4(1, 0, 0, 1);//* MainTexture.Sample(MainTextureSampler, pin.tex * TextureTile);
+    return DiffuseColor;//* MainTexture.Sample(MainTextureSampler, pin.tex * TextureTile);
 }
 
 technique11 DefaultTech

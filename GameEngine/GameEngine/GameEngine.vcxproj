@@ -36,8 +36,8 @@
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\SoftwaresLibrary\Boost_Cpp\boost_1_68_0;D:\SoftwaresLibrary\Assimp\assimp-3.1.1-win-binaries\include;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\SoftwaresLibrary\Boost_Cpp\boost_1_68_0\stage\lib;D:\SoftwaresLibrary\Assimp\assimp-3.1.1-win-binaries\lib32;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\SoftwaresLibrary\Boost_Cpp\boost_1_68_0;D:\SoftwaresLibrary\FBXSDK\2013.3\include;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\SoftwaresLibrary\Boost_Cpp\boost_1_68_0\stage\lib;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -51,9 +51,9 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\SoftwaresLibrary\FBXSDK\2013.3\lib\vs2010\x86;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;fbxsdk-2013.3.lib;fbxsdk-2013.3d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -130,6 +130,7 @@
     <ClCompile Include="RenderEngine\Mesh.cpp" />
     <ClCompile Include="RenderEngine\MeshFilter.cpp" />
     <ClCompile Include="RenderEngine\MeshShapes.cpp" />
+    <ClCompile Include="RenderEngine\ModelLoader.cpp" />
     <ClCompile Include="RenderEngine\Shader.cpp" />
     <ClCompile Include="RenderEngine\ShadersLib.cpp" />
     <ClCompile Include="RenderEngine\Texture2D.cpp" />
@@ -196,6 +197,7 @@
     <ClInclude Include="RenderEngine\Mesh.h" />
     <ClInclude Include="RenderEngine\MeshFilter.h" />
     <ClInclude Include="RenderEngine\MeshShapes.h" />
+    <ClInclude Include="RenderEngine\ModelLoader.h" />
     <ClInclude Include="RenderEngine\Shader.h" />
     <ClInclude Include="RenderEngine\ShadersLib.h" />
     <ClInclude Include="RenderEngine\Texture2D.h" />

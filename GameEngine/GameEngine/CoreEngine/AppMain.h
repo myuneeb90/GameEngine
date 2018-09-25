@@ -4,6 +4,7 @@
 // API Defines
 #define WIN32_LEAN_AND_MEAN
 #define DIRECTINPUT_VERSION 0x0800
+//#define FPSSDK_NEW_API
 
 // Library Links
 #pragma comment(lib, "winmm.lib")
@@ -15,6 +16,8 @@
 #pragma comment(lib, "Effects11.lib")
 #pragma comment(lib, "d3dx10.lib")
 #pragma comment(lib, "pdh.lib")
+//#pragma comment(lib, "assimp.lib")
+
 
 // API Includes
 #include <Windows.h>
@@ -43,11 +46,13 @@
 #include <list>
 #include <iterator>
 #include <boost/any.hpp>
-#include <assimp/Importer.hpp>
-#include <assimp/scene.h>
-#include <assimp/postprocess.h>
+#include <fbxsdk.h>
+//#include <assimp/Importer.hpp>
+//#include <assimp/scene.h>
+//#include <assimp/postprocess.h>
 using namespace std;
 using namespace boost;
+
 
 // Engine Defines
 #define SAFE_DELETE(X) if(X) { delete (X); (X) = NULL; }
@@ -126,6 +131,7 @@ enum CullModeType
 #include "RenderEngine/MeshShapes.h"
 #include "RenderEngine/LineShapes.h"
 #include "RenderEngine/ShadersLib.h"
+#include "RenderEngine/ModelLoader.h"
 
 // ECS
 #include "ECS/BaseComponent.h"

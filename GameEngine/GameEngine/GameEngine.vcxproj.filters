@@ -246,6 +246,9 @@
     <ClCompile Include="ECS\ECSManager.cpp">
       <Filter>ECS\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RenderEngine\ModelLoader.cpp">
+      <Filter>RenderEngine\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="gameengine.ui">
@@ -384,6 +387,9 @@
     </ClInclude>
     <ClInclude Include="ECS\ECSManager.h">
       <Filter>ECS\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine\ModelLoader.h">
+      <Filter>RenderEngine\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

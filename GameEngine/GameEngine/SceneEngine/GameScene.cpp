@@ -38,31 +38,49 @@ void GameScene::Awake()
 	Renderer = new RenderSystem();
 	Renderer->Initialize(Pool);
 	*/
+
+	Material *mat1 = new Material;
+	mat1->DiffuseColor = Color(1.0f, 0.0f, 0.0f, 1.0f);
+
+	Material *mat2 = new Material;
+	mat2->DiffuseColor = Color(0.0f, 1.0f, 0.0f, 1.0f);
+
+
 	Manager = new ECSManager();
 	
-
+	ModelLoader *modelLoader = new ModelLoader();
 
 	IEntity *e1 = new IEntity(); // T R
 	IEntity *e2 = new IEntity(); // T R
 	IEntity *e3 = new IEntity(); // T 
 	IEntity *e4 = new IEntity(); // T 
+	IEntity *e5 = new IEntity();
 
 	Manager->AddEntity(e1);
 	Manager->AddEntity(e2);
 	Manager->AddEntity(e3);
 	Manager->AddEntity(e4);
+	Manager->AddEntity(e5);
 
-	Manager->AddComponent(e1, new ITransformComponent());
-	Manager->AddComponent(e1, new IRenderComponent());
+	Mesh *meshData = modelLoader->LoadModel("Assets/Models/TestModel2.fbx");
 
-	Manager->AddComponent(e2, new ITransformComponent());
-	Manager->AddComponent(e2, new IRenderComponent());
+	ITransformComponent *t1 = new ITransformComponent();
+
+	Manager->AddComponent(e1, t1);
+	Manager->AddComponent(e1, new IRenderComponent(meshData, mat1));
+
+	Manager->AddComponent(e2, new ITransformComponent(Vector3f(5, 0, 0), Vector3f(0,0,0), Vector3f(1,1,1), t1));
+	Manager->AddComponent(e2, new IRenderComponent(MeshShapes::CreateSphere(2.0f, 8), mat2));
 
 	Manager->AddComponent(e3, new ITransformComponent());
 	Manager->AddComponent(e4, new ITransformComponent());
 
+	Manager->AddComponent(e5, new IFPSCameraComponent(Vector3f(0, 0, -5), 1.1f));
+
+	Manager->AddSystem(new IFPSCameraSystem());
 	Manager->AddSystem(new ITransformSystem());
 	Manager->AddSystem(new IRenderSystem());
+	
 
 	//a = new EList<int>();
 
@@ -89,9 +107,9 @@ void GameScene::Update()
 	//Transformer->Execute();
 	//
 
-	GlobalRefs::Graphics->BeginRender(0.5f, 0.5f, 0.5f, 1.0f);
+	
 	//Renderer->Execute();
-	GlobalRefs::Graphics->EndRender();
+	
 	
 //	Manager->UpdateSystems();
 }

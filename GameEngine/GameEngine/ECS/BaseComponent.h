@@ -11,7 +11,8 @@ enum ComponentIDType
 {
 	CIT_BASE = 0,
 	CIT_TRANSFORM = 1,
-	CIT_RENDER = 2
+	CIT_RENDER = 2,
+	CIT_FPSCAMERA = 3
 };
 
 struct BaseComponent

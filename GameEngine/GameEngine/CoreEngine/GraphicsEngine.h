@@ -30,7 +30,10 @@ class GraphicsEngine
 			ID3D11DeviceContext *DeviceContext;
 			IDXGISwapChain *SwapChain;
 			DXGI_SWAP_CHAIN_DESC SwapChainDesc;
-			aiScene *scene;
+
+			Matrix4x4f ViewMatrix;
+			Matrix4x4f ProjectionMatrix;
+		//	aiScene *scene;
 	public:
 			GraphicsEngine();
 			~GraphicsEngine();

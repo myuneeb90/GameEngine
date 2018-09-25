@@ -3,6 +3,10 @@
 
 class MeshShapes
 {
+	private:
+		//	static void ProcessNode(aiNode *node, const aiScene *scene, Mesh *meshData);
+		//	static void ProcessMesh(aiMesh *mesh, const aiScene *scene, Mesh *meshData);
+
 	public:
 
 			// Shape Functions
@@ -16,7 +20,7 @@ class MeshShapes
 			static Mesh* CreateSphere(float radius, int divisions);
 			static Mesh* CreateSphere(float radius, int sliceCount, int stackCount); 
 			static Mesh* CreateTorus(float outerRadius, float innerRadius, int outerSides, int innerSides);
-		//	static Mesh* LoadModel(char *fileName);
+			static Mesh* LoadModel(char *fileName);
 
 			static void CalculateTangentBinormal(VertexFormat v1, VertexFormat v2, VertexFormat v3, Vector3f &tangent, Vector3f &binormal);
 			static void CalculateTangentBinormal(Vector3f v1, Vector3f v2, Vector3f v3, Vector2f t1, Vector2f t2, Vector2f t3, Vector3f &tangent, Vector3f &binormal);			

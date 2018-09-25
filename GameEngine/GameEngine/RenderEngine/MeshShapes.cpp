@@ -1269,6 +1269,107 @@ Mesh* MeshShapes::CreateTorus(float outerRadius, float innerRadius, int outerSid
 
 	return newMesh;
 }
+
+Mesh* MeshShapes::LoadModel(char *fileName)
+{
+/*	Assimp::Importer importer;
+	const aiScene *scene = importer.ReadFile(fileName, aiProcess_GenSmoothNormals | aiProcess_Triangulate | aiProcess_CalcTangentSpace | aiProcess_FlipUVs);
+
+	if(!scene->mFlags)
+	{
+		cout<<"Model file failed to load"<<endl;
+		return NULL;
+	}
+
+//	MeshShapes::RecursiveProcess(scene->mRootNode, scene);
+
+	aiNode *node = scene->mRootNode;
+	aiMesh *mesh = scene->mMeshes[node->mMeshes[0]];
+
+	vector<unsigned long> indices;
+
+	Mesh *meshData = new Mesh();
+	meshData->VertexCount = mesh->mNumVertices;
+	meshData->VertexData = new VertexFormat[meshData->VertexCount];
+
+	for(int i = 0; i < mesh->mNumVertices; i++)
+	{
+		meshData->VertexData[i].Vertex = Vector3f(mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z);
+	}
+
+	for(int i = 0; i < mesh->mNumFaces; i++)
+	{
+		aiFace face = mesh->mFaces[i];
+		for(int j = 0; j < face.mNumIndices; j++)
+		{
+			indices.push_back(face.mIndices[j]);
+		}
+	}
+
+	meshData->IndexCount = indices.size();
+	meshData->IndexData = new unsigned long[meshData->IndexCount];
+
+	for(int i = 0; i < meshData->IndexCount; i++)
+	{
+		meshData->IndexData[i] = indices[i];
+	}
+
+	return meshData; */
+	return NULL;
+}
+/*
+void MeshShapes::ProcessNode(aiNode *node, const aiScene *scene, Mesh *meshData)
+{
+	// Process Mesh
+	for(int i = 0; i < node->mNumMeshes; i++)
+	{
+		aiMesh *mesh = scene->mMeshes[node->mMeshes[i]];
+		ProcessMesh(mesh, scene);
+	}
+
+	// Process Node
+	for(int i = 0; i < node->mNumChildren; i++)
+	{
+		ProcessNode(node->mChildren[i], scene);
+	}
+}
+
+void MeshShapes::ProcessMesh(aiMesh *mesh, const aiScene *scene, Mesh *meshData)
+{
+	vector<unsigned long> indices;
+
+	Mesh *meshData = new Mesh();
+	meshData->VertexCount = mesh->mNumVertices;
+	meshData->VertexData = new VertexFormat[meshData->VertexCount];
+
+
+
+	for(int i = 0; i < mesh->mNumVertices; i++)
+	{
+		meshData->VertexData[i].Vertex = Vector3f(mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z);
+	//	meshData->IndexData[i] = mesh->mIn
+	}
+
+	for(int i = 0; i < mesh->mNumFaces; i++)
+	{
+		aiFace face = mesh->mFaces[i];
+		for(int j = 0; j < face.mNumIndices; j++)
+		{
+			indices.push_back(face.mIndices[j]);
+		}
+	}
+
+	meshData->IndexCount = indices.size();
+	meshData->IndexData = new unsigned long[meshData->IndexCount];
+
+	for(int i = 0; i < meshData->IndexCount; i++)
+	{
+		meshData->IndexData[i] = indices[i];
+	}
+
+//	return meshData;
+}
+*/
 /*
 Mesh* MeshShapes::LoadModel(char *fileName)
 {

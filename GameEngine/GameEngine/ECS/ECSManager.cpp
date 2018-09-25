@@ -47,6 +47,7 @@ void ECSManager::RemoveEntity(IEntity *entity)
 	EntityList.remove(entity);
 }
 
+// Check for the components that can be added either once or more than once in this function
 void ECSManager::AddComponent(IEntity *entity, IComponent *component)
 {
 	component->ID = ComponentCount;
@@ -112,6 +113,6 @@ void ECSManager::Update()
 	for(SIter = SystemList.begin(); SIter != SystemList.end(); ++SIter)
 	{
 		ISystem *system = *SIter;
-		system->Execute();
+		system->Execute(ComponentList);
 	}
 }
