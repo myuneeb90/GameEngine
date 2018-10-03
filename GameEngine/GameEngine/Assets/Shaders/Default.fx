@@ -42,7 +42,13 @@ VertexOut VS(VertexIn vin)
 	VertexOut vout;
 	
 	// Transform to homogeneous clip space.
+//	vout.position = float4(vin.position, 1.0f);
+//	vout.position.x -= 1.1f;
+//	vout.position.y += 1.1f;
+
+	
 	vout.position = mul(float4(vin.position, 1.0f), WVP);
+
 //	vout.tex = vin.tex;
 //	vout.normal = mul(vin.normal, (float3x3)World);
 //	vout.normal = normalize(vout.normal);

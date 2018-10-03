@@ -201,7 +201,7 @@ class ITransformSystem : public ISystem
 				{
 					ITransformComponent *transform = (ITransformComponent*)componentList[Group[i]->ComponentList[ECOI_TRANSFORM]];
 					transform->WorldMatrix = ConstructWorldMatrix(transform, transform->Parent);
-					transform->Rotation += Vector3f(0, 5.1f * GlobalRefs::Time->GetDeltaTime(), 0);
+				//	transform->Rotation += Vector3f(0, 5.1f * GlobalRefs::Time->GetDeltaTime(), 0);
 				}
 			}
 

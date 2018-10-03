@@ -124,6 +124,7 @@
     <ClCompile Include="MathEngine\Vector4d.cpp" />
     <ClCompile Include="MathEngine\Vector4f.cpp" />
     <ClCompile Include="RenderEngine\Color.cpp" />
+    <ClCompile Include="RenderEngine\FBXModel.cpp" />
     <ClCompile Include="RenderEngine\LineShapes.cpp" />
     <ClCompile Include="RenderEngine\Material.cpp" />
     <ClCompile Include="RenderEngine\MaterialFilter.cpp" />
@@ -191,6 +192,7 @@
     <ClInclude Include="MathEngine\Vector4d.h" />
     <ClInclude Include="MathEngine\Vector4f.h" />
     <ClInclude Include="RenderEngine\Color.h" />
+    <ClInclude Include="RenderEngine\FBXModel.h" />
     <ClInclude Include="RenderEngine\LineShapes.h" />
     <ClInclude Include="RenderEngine\Material.h" />
     <ClInclude Include="RenderEngine\MaterialFilter.h" />

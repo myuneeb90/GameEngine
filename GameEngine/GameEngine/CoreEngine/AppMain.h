@@ -132,6 +132,7 @@ enum CullModeType
 #include "RenderEngine/LineShapes.h"
 #include "RenderEngine/ShadersLib.h"
 #include "RenderEngine/ModelLoader.h"
+#include "RenderEngine/FBXModel.h"
 
 // ECS
 #include "ECS/BaseComponent.h"

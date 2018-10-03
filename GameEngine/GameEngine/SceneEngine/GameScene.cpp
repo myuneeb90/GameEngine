@@ -62,14 +62,14 @@ void GameScene::Awake()
 	Manager->AddEntity(e4);
 	Manager->AddEntity(e5);
 
-	Mesh *meshData = modelLoader->LoadModel("Assets/Models/TestModel2.fbx");
+	Mesh *meshData = modelLoader->LoadModel("Assets/Models/TestModel3.fbx");
 
 	ITransformComponent *t1 = new ITransformComponent();
 
 	Manager->AddComponent(e1, t1);
 	Manager->AddComponent(e1, new IRenderComponent(meshData, mat1));
 
-	Manager->AddComponent(e2, new ITransformComponent(Vector3f(5, 0, 0), Vector3f(0,0,0), Vector3f(1,1,1), t1));
+	Manager->AddComponent(e2, new ITransformComponent(Vector3f(15, 0, 0), Vector3f(0,0,0), Vector3f(1,1,1), t1));
 	Manager->AddComponent(e2, new IRenderComponent(MeshShapes::CreateSphere(2.0f, 8), mat2));
 
 	Manager->AddComponent(e3, new ITransformComponent());
